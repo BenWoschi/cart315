@@ -10,18 +10,30 @@ public class EnemySpawner : MonoBehaviour
     public float minY = -2f;
     public float maxY = 2f;
 
-    public float minSpawnDistance = 1.2f; // tweak based on enemy size
-    public int maxAttempts = 10; // prevents infinite loops
+    public float minSpawnDistance = 1.2f;
+    public int maxAttempts = 10;
+
+    // Spawn Timer
+    public float spawnDelay = 2f; // seconds between respawns
+    private float spawnTimer = 0f;
 
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length < maxEnemies)
+        spawnTimer -= Time.deltaTime;
+
+        int currentEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+        // Only spawn if under max AND timer finished
+        if (currentEnemies < maxEnemies && spawnTimer <= 0f)
         {
-            SpawnEnemy();
+            if (SpawnEnemy())
+            {
+                spawnTimer = spawnDelay; // reset timer after successful spawn
+            }
         }
     }
 
-    void SpawnEnemy()
+    bool SpawnEnemy()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -46,8 +58,10 @@ public class EnemySpawner : MonoBehaviour
             if (validPosition)
             {
                 Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
-                return;
+                return true;
             }
         }
+
+        return false;
     }
 }
