@@ -680,8 +680,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 38202
-    m_LastClickedInstanceID: 38202
+    - m_Data: 41546
+    m_LastClickedInstanceID: 41546
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 73278
@@ -807,7 +807,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 38202
+      - m_Data: 41546
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
@@ -1480,7 +1480,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 880.4, y: 377}
+  m_TargetSize: {x: 1920, y: 1080}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1489,16 +1489,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -352.16
-    m_HBaseRangeMax: 352.16
-    m_VBaseRangeMin: -150.8
-    m_VBaseRangeMax: 150.8
+    m_HBaseRangeMin: -768
+    m_HBaseRangeMax: 768
+    m_VBaseRangeMin: -432
+    m_VBaseRangeMax: 432
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -1518,7 +1518,7 @@ MonoBehaviour:
       y: 21
       width: 880.4
       height: 377
-    m_Scale: {x: 1.25, y: 1.25}
+    m_Scale: {x: 0.4363426, y: 0.4363426}
     m_Translation: {x: 440.2, y: 188.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1526,12 +1526,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -352.16
-      y: -150.8
-      width: 704.32
-      height: 301.6
+      x: -1008.84033
+      y: -432
+      width: 2017.6807
+      height: 864
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.4363426
   m_LastWindowPixelSize: {x: 1100.5, y: 497.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1

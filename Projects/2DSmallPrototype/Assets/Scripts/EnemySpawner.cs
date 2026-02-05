@@ -3,18 +3,18 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int maxEnemies = 7;
+    public int maxEnemies = 10;
 
-    public float minX = -5f;
-    public float maxX = 5f;
-    public float minY = -2f;
-    public float maxY = 2f;
+    public float minX = -24f;
+    public float maxX = 24f;
+    public float minY = -16f;
+    public float maxY = 16f;
 
     public float minSpawnDistance = 1.2f;
     public int maxAttempts = 10;
 
     // Spawn Timer
-    public float spawnDelay = 2f; // seconds between respawns
+    public float spawnDelay = 0.5f; // seconds between respawns
     private float spawnTimer = 0f;
 
     void Update()
