@@ -3,9 +3,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 8f;
-    public int damage = 100; // ✅ NEW
+    public int damage = 100;
 
     private Vector2 direction;
+
+    void Start()
+    {
+        // Destroy bullet after 5 seconds
+        Destroy(gameObject, 5f);
+    }
 
     // This gets called by the Player when the bullet is spawned
     public void SetDirection(Vector2 dir)
@@ -29,10 +35,10 @@ public class Bullet : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.TakeDamage(damage); // ✅ deal damage
+                enemy.TakeDamage(damage);
             }
 
-            Destroy(gameObject); // bullet disappears
+            Destroy(gameObject);
         }
     }
 }

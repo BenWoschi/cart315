@@ -680,8 +680,8 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 41546
-    m_LastClickedInstanceID: 41546
+    - m_Data: 38202
+    m_LastClickedInstanceID: 38202
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs:
     - m_Data: 73278
@@ -807,7 +807,7 @@ MonoBehaviour:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs:
-      - m_Data: 41546
+      - m_Data: 38202
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
