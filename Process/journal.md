@@ -54,3 +54,61 @@ I also briefly looked over tags but still don't have a complete grasp as to what
 Overall, I'd say this was quite succesful and accomplished most of what I wanted to achieve, and learned some of the basics of Unity at the same time. I'm hoping to slowly build up to making an actual isometric top-down shooter and will continue working on that goal in the following weeks.
 
 ![Squared Invaders](Screenshots/2dInvadersBullet.png)
+
+# Second Prototype | Process Journal
+
+## 02/06/2026
+
+I started this week off with a very general question: how do I slowly begin to build towards my eventual final project idea?
+I'm aware that this phase of the course is geared more towards exploratory prototyping rather than a more narrow and concrete idea for the final project, but I'm deciding to start early. I have a (hopefully) feasible idea that I will be able to accomplish by the end of the course if all goes well.
+
+My idea? A top-down isometric shooter, similar to games such as Enter the Gungeon or Cult of the Lamb, but rather than having it be primarily a shooter, I want it to be focused around spells or environmental changes that help defeat enemies in very specific ways.
+
+I am primarily inspired by an old Playstation 2 game named Okami. This is a game where you have swords and other weapons to fight, but your main weapon is a brush, and you must draw with the controller to either change the environment around you or use specific 'abilities' to deal with tougher enemies. I.e. it's daytime and to solve a specific puzzle it must be night. Therefore, you pull out a scroll and draw a crescent to change the time of day.
+
+![Okami Screenshot](Screenshots/okami.jpg)
+
+Okami is a 3d semi-linear open world and something I do not think I will be able to replicate on time. A 2D top-down shooter with pixel art seems more feasible for my experience and timeframe.
+
+## Further Questions
+
+My general idea is solidified, now where to?
+
+I need to narrow down my idea further. What are key components of an isometric top-down shooter?
+
+There are:
+
+- Enemies that spawn around you and chase and/or attack you
+- Some form of shooting from the player (or abilities)
+- Fast-paced movement
+- An arena where the fighting takes place
+- A locked camera that combined with pixel art simulates a somewhat 3D feel
+
+Enemies seemed like the most logical step to tackle first. I'm planning on keeping the variety small as to not overachieve and keep expectations realistic for my skill and timeframe. I'm planning on adding 4 types, one slow, one fast, one ranged and one who can dodge with further variation that I will discuss in future journals.
+
+Taking one step at a time, I decided to alter my first game prototype and just have my Enemy prefab spawn around me as opposed to falling from above, which I achieved. I also made sure to implement a space from each other so they would not spawn directly on top of one another.
+
+They spawn at random coordinates across the scene up to a maximum of 10.
+
+![Enemies Screenshot](Screenshots/enemies-around.png)
+
+Bullet collision and having enemies be destroyed was already there from my last prototype, but my bullets only shot upwards.
+Therefore, the next step was to have the bullet prefab capsules rotate and fire based on my mouse position from the player's position which worked.
+
+I also added health bars for the enemies that would remain invisible, primarily so I could test a damage over time area of effect ability (as demonstrated by this blue circle).
+
+![Area of effect Screenshot](Screenshots/aoe.png)
+
+This worked out fairly succesfully but one thing irked me, how come the enemies took so long to be destroyed?
+I gave my enemies 100 health and set the damage over time effect to 20 damage per second when the enemies were inside.
+
+This is how I found out how Time.deltaTime worked. The total damage per second that was calculated was based off of framerate rather than damage per frame.
+
+For example, I set it to 100 damage per second, then it's 100 dps _ 0.016 seconds per frame ≈ 1.6
+Then 1.6 _ 60 fps ≈ 96 damage per second.
+
+This made some sense to me but I still found it odd, and I am unsure if I will go back to change the way my damage works sometime in the near future.
+
+This took me a while as I am still slowly trying to understand C#, as many parts of it confuse me and as before, I had AI help me with the script code. I am not just blindly copy and pasting but still trying to understand what I am coding to the best of my ability.
+
+I want to continue down this path of implementation prototyping for now, as I have not sweated the visual details or world-building yet. I have ideas, but those will be tested later on.
