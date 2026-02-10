@@ -5,17 +5,18 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public int maxEnemies = 10;
 
-    public float minX = -24f;
-    public float maxX = 24f;
-    public float minY = -16f;
-    public float maxY = 16f;
+    public BoxCollider2D spawnArea;
 
-    public float minSpawnDistance = 1.2f;
-    public int maxAttempts = 10;
+    public float minSpawnDistance = 1.7f;
+    public int maxAttempts = 7;
 
     // Spawn Timer
-    public float spawnDelay = 0.5f; // seconds between respawns
+    public float spawnDelay = 0.5f;
     private float spawnTimer = 0f;
+
+    public Transform player;
+    public float minPlayerDistance = 2f;
+
 
     void Update()
     {
@@ -39,13 +40,25 @@ public class EnemySpawner : MonoBehaviour
 
         for (int i = 0; i < maxAttempts; i++)
         {
+            Bounds bounds = spawnArea.bounds;
+
+            float padding = 0.5f;
+
             Vector2 spawnPos = new Vector2(
-                Random.Range(minX, maxX),
-                Random.Range(minY, maxY)
+                Random.Range(bounds.min.x + padding, bounds.max.x - padding),
+                Random.Range(bounds.min.y + padding, bounds.max.y - padding)
             );
+
 
             bool validPosition = true;
 
+            // Check distance from player first
+            if (Vector2.Distance(spawnPos, player.position) < minPlayerDistance)
+            {
+                validPosition = false;
+            }
+
+            // Check distance from other enemies
             foreach (GameObject enemy in enemies)
             {
                 if (Vector2.Distance(spawnPos, enemy.transform.position) < minSpawnDistance)
@@ -54,6 +67,7 @@ public class EnemySpawner : MonoBehaviour
                     break;
                 }
             }
+
 
             if (validPosition)
             {

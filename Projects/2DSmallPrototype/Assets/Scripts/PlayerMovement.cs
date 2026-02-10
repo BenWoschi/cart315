@@ -4,6 +4,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
 
+    public float playerHealth = 100f;
+
     void Update()
     {
         // Movement
