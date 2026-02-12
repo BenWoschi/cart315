@@ -159,7 +159,7 @@ Sea of Thieves does something like this where specific gold-plated skeletons can
 
 I will allow the player to be able to control the weather in some manner by drawing certain symbols, so it creates an interesting dynamic that (especially newer) players will have to think about and overcome in order to progress, as metal and water do not traditionally mix well.
 
-Therefore, the last thing I coded in was a toggle to create a blue rectangle that represents the rai and lasts for 10 seconds, during which time all enemies following me are slowed by 40% for its duration.
+Therefore, the last thing I coded in was a toggle to create a blue rectangle that represents the rain and lasts for 10 seconds, during which time all enemies following me are slowed by 40% for its duration.
 
 ![Prototype Rain Weather Test](Screenshots/Raintest.png)
 
