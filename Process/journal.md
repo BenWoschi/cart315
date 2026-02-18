@@ -164,3 +164,46 @@ Therefore, the last thing I coded in was a toggle to create a blue rectangle tha
 ![Prototype Rain Weather Test](Screenshots/Raintest.png)
 
 I have been typing for a while now, so to cut it short, this is the direction I am planning on taking the game, which I will continue to improve overtime with each one of these sessions and journals.
+
+# Fourth Prototype Version | Process Journal
+
+## 02/18/2026
+
+This journal entry will be relatively short as I have a couple midterms due soon so I was not able to continue working on my idea that extensively.
+
+..It just dawned on me that I have been titling each entry as if they were different prototypes when I have only been working on one, but it's too late at this point since I don't want to break any past links, therefore I will make adjustments going forward.
+
+I also want to mention that most of these prototype versions seem relatively small in terms of changes between each other, but even with the help of AI for some, these can take me many hours to figure out as I am completely new to Unity and C#. So, for some who are more experienced this may seem like nothing, but it takes a while for me. I've been working at my own pace making small but meaningful adjustments between each version and I am happy with the progress so far.
+
+Anyways, with that being said, I was able to implement two small additions this week that drastically improve the rather boring gameplay loop from my previous prototype version.
+
+The first was creating the infrastructure to be able to spawn multiple types of enemies with weighted spawns, so some would spawn more than others. This.. was a lot easier than I thought. Most of the infrastructure was already in place. All I had to do was change the enemy spawner variable into an array and plug in both my enemies into said array within the engine.
+
+![Enemy Array](Screenshots/enemyarray.png)
+
+Furthermore, I knew that I needed my basic enemy to spawn more often than other special varients, so I added a random range weighted spawn system, which made my basic slow-moving enemies significantly more common.
+
+![Weighted Spawns](Screenshots/weightedspawns.png)
+
+Aaand that was it. That was really easy.
+
+But oh boy was I not ready for the next addition.
+
+I wanted to implement a dash, as it helps add fluidity and gives the combat a more dynamic flow to it, rather than being stale and rigid as it has been prior.
+
+I decided to follow a tutorial by a channel named BMo: https://www.youtube.com/watch?v=VWaiU7W5HdE
+
+This was when I ran into a very specific issue.
+The previous movement system for my player was primitive, utilizing transform. Translate which essentially just teleports my player every frame, which is not what I want. If I wanted to follow the tutorial properly, I needed to utilize RigidBody2D which, from my understanding, uses physics-based movement. This took a while for me to understand but it does seem like the physics-based movement is just a better and more dynamic way to implement movement even on a 2D plane.
+
+![Dash and Fast Enemies](Screenshots/dashshowcase.gif)
+
+## Looking Forward
+
+Progress has been slow but steady. Although, I realize we are approaching week 7 already and I need to pick up the pace. After this week, additions and changes should be much larger in scale and more frequent.
+
+There's the elephant in the room I need to address regarding the action input system I plan on implementing for this prototype. This will be by far the largest hurdle that I will need to overcome aside from the visuals. I plan on utilizing the break to work on both of these.
+
+I also originally planned on continuing work on the weather system I praised and spoke about last week, but I have doubts. I still may be falling victim to scope creep, as I don't think I will be able to fully implement my idea regarding that in the limited time I have left. I may scrap it entirely or just keep the rain weather as a sort of spell/ability, I am not sure yet.
+
+Regardless, I must stay focused and work harder on the core systems and mechanics to create something that is uniquely fun, while worrying about additional features later.

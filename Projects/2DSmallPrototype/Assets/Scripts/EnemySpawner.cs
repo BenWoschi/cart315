@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
+
     public int maxEnemies = 10;
 
     public BoxCollider2D spawnArea;
@@ -71,7 +72,21 @@ public class EnemySpawner : MonoBehaviour
 
             if (validPosition)
             {
-                Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+                int roll = Random.Range(0, 100);
+
+                GameObject chosenEnemy;
+
+                if (roll < 80)
+                {
+                    chosenEnemy = enemyPrefabs[0]; // normal enemy
+                }
+                else
+                {
+                    chosenEnemy = enemyPrefabs[1]; // faster enemy
+                }
+
+                Instantiate(chosenEnemy, spawnPos, Quaternion.identity);
+
                 return true;
             }
         }

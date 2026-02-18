@@ -728,7 +728,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1446a477a130f43ab20e7c1eb70dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyPrefab: {fileID: 8041816958288679060, guid: 6623a4e64caa69848a16cc88488b04be, type: 3}
+  enemyPrefabs:
+  - {fileID: 8041816958288679060, guid: 6623a4e64caa69848a16cc88488b04be, type: 3}
+  - {fileID: 8041816958288679060, guid: 7d17c53fc0688c74abe46a8085e54972, type: 3}
   maxEnemies: 7
   spawnArea: {fileID: 1880350889}
   minSpawnDistance: 1.7
@@ -1140,6 +1142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 5
+  dashSpeed: 15
+  dashDuration: 0.15
+  dashCooldown: 0.75
   playerHealth: 100
 --- !u!61 &1980787842
 BoxCollider2D:
