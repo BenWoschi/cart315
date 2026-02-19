@@ -173,8 +173,6 @@ This journal entry will be relatively short as I have a couple midterms due soon
 
 ..It just dawned on me that I have been titling each entry as if they were different prototypes when I have only been working on one, but it's too late at this point since I don't want to break any past links, therefore I will make adjustments going forward.
 
-I also want to mention that most of these prototype versions seem relatively small in terms of changes between each other, but even with the help of AI for some, these can take me many hours to figure out as I am completely new to Unity and C#. So, for some who are more experienced this may seem like nothing, but it takes a while for me. I've been working at my own pace making small but meaningful adjustments between each version and I am happy with the progress so far.
-
 Anyways, with that being said, I was able to implement two small additions this week that drastically improve the rather boring gameplay loop from my previous prototype version.
 
 The first was creating the infrastructure to be able to spawn multiple types of enemies with weighted spawns, so some would spawn more than others. This.. was a lot easier than I thought. Most of the infrastructure was already in place. All I had to do was change the enemy spawner variable into an array and plug in both my enemies into said array within the engine.
