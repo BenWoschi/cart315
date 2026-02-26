@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class EnemyFollow : MonoBehaviour
+public class MoveTowards : MonoBehaviour
 {
     public float speed = 3f;
+    public float socialDistancing = 1.2f;
 
     private Transform player;
     private Rigidbody2D rb;
@@ -17,8 +18,17 @@ public class EnemyFollow : MonoBehaviour
     {
         if (player == null) return;
 
+        float distance = Vector2.Distance(transform.position, player.position);
         float slow = RainWeather.Instance.GetSlowMultiplier();
-        Vector2 direction = (player.position - transform.position).normalized;
-        rb.linearVelocity = direction * speed * slow;
+
+        if (distance > socialDistancing)
+        {
+            Vector2 direction = (player.position - transform.position).normalized;
+            rb.linearVelocity = direction * speed * slow;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 }

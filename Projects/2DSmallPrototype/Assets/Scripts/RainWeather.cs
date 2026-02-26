@@ -92,4 +92,10 @@ public class RainWeather : MonoBehaviour
     {
         return active ? slowIntensity : 1f;
     }
+
+    public void SummonRain()
+    {
+        if (!active)
+            ActivateRain();
+    }
 }

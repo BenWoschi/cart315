@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
     bool isDashing;
     bool canDash;
 
-    public float playerHealth = 100f;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

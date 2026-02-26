@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   expandTime: 0.5
   stayTime: 5
-  damagePerSecond: 130
+  damagePerSecond: 230
 --- !u!58 &6643904770944851937
 CircleCollider2D:
   m_ObjectHideFlags: 0
