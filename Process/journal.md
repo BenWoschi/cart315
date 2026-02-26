@@ -205,3 +205,58 @@ There's the elephant in the room I need to address regarding the action input sy
 I also originally planned on continuing work on the weather system I praised and spoke about last week, but I have doubts. I still may be falling victim to scope creep, as I don't think I will be able to fully implement my idea regarding that in the limited time I have left. I may scrap it entirely or just keep the rain weather as a sort of spell/ability, I am not sure yet.
 
 Regardless, I must stay focused and work harder on the core systems and mechanics to create something that is uniquely fun, while worrying about additional features later.
+
+# First Ideation Prototype | Process Journal
+
+## 02/25/2026
+
+### UX vs Systemic Approach
+
+Last class' idea workshop left me rethinking my approach a bit as to what I want to do and how I should go about it. I'm left wondering now if I should continue with what I have been working towards this entire time or try a different approach. This is still something that I'm unsure of and will have to give it more thought over the break. However, two things remained stagnant: that I want an action input system in my game, no doubt about it, regardless of what I do as I think it's such a creative and fun way to shake up normal gameplay that hasn't been done much before. The other was a question that I was asked by Jeremy(?) when discussing my ideas. That question was: how do you want to make the players feel? Rather than thinking from a purely mechanical and systemic point of view.
+
+This is a question that is and has still stuck with me for a while, as upon hearing it, I almost immediately wrote it down so I wouldn't forget. I am aware of the irony that I spoke about wanting to take a step back and approach my idea from a more theoretical stance, yet still sticking with the one mechanic that I want, but the way I approached how I implemented said mechanic was different because of the question.
+
+Before I did anything, I needed a way to add tension in my game so that I will be able to better test out the questions that I asked myself, which I will show later.
+Because prior, enemies did nothing but follow, and there was almost no tension to be able to stress test my ideas. Therefore, I added player health and a way for enemies to damage you when they came into collision within a certain radius. This was something I should have implemented way sooner, but it was absolutely crucial for my tests later on.
+
+### Action Input System
+
+I followed this tutorial by Night Run Studio which was relatively easy to follow and setup for my own game: https://www.youtube.com/watch?v=vSxkfzNksQ0. After some fine tuning and adjustments, I was ready to ask myself the second question: How would I create a similar gesture/action input system like that found in Okami, but within Unity?
+
+I was almost clueless on this, as I had completely forgotten at the time what it was called or if it was even possible to accomplish this within Unity. Google didn't yield many results. However, I came across this Unity forum post from all the way back in 2010 asking the same question that I had. https://discussions.unity.com/t/okami-like/424438/3
+
+User tonyd mentioned the Input.mousePosition line of code and I took off from there.
+
+![Unity Forum Post](Screenshots/gestureforum.png)
+
+Being very inexperienced in Unity and C#, I threw this reply into ChatGPT to see what it will give me. On a sidenote, I have been trying to rely on AI a lot less, but this was something far too complex for me right now so I felt this was the one time I should rely on it, and also it would be easier to describe the shape that I wanted rather than me manually mapping out the shape that I wanted.
+
+### Flow like Mud
+
+For once, AI was actually really helpful and gave me a functioning script code that I was able to plug into an empty so it could recognize what I was drawing. This led me to my third question: even with the very mechanically limited game I have right now, does it flow well?
+
+This is why I needed to add player damage and death, so I could stress test that exact scenario. I originally wanted a fast-paced top-down shooter, where drawing simultaneously as moving around and shooting would flow well into a seamless gameplay loop that allowed the user to pull off some theoretically satisfying maneuvers and fast-paced combos when I implemented a more intricate combat system. But, uh, no. I very much thought wrong. It was slow, clunky, and did not flow well into dashing, moving and shooting at all. It felt pretty bad being chased by enemies while you tried to draw something and dash away, which would only worsen as that stress made drawing even more difficult. I was using a mouse, I could only imagine how awful it would feel with a trackpad. There would be a lot of scenarios where you had to find an empty spot and just stand still to draw while praying that a faster enemy wouldn't catch up. It removed a lot of player agency and led to stressful scenarios. As seen here, it did not work well with a very one-dimensional system like I had, and I could only imagine how annoying and frustrating the user experience would be if I had a more intricate movement and combat system.
+
+![Standing still while drawing](Screenshots/teardraw.gif)
+
+Okami remedies this by pausing the entire game when holding down a button to draw, which, in that game I think worked quite well, even in intense combat. I was under the impression that it would lead into a disruptive loop, where the player would be in the rhythm of shooting and avoiding enemies, and having to pause the game to draw would not be very satisfying. I had to rethink my approach. Even in intense combat, the way the brush techniques were implemented into Okami flow well, and were satisfying to pull off, even in puzzle scenarios.
+
+![Okami Brush Pause](Screenshots/okamibrushmovement.gif)
+
+All pausing the game did was allow the player to have more agency without stressing about the controls and allowing them to take these matters into their own hands while in the thick of it.
+
+### Less Anxiety, the Better
+
+Despite earlier reservations, this is how I decided to continue forward.
+
+There were some issues with action recognition, as on initial testing, all I had to do was draw a line and it would recognise it as an accepted shape.
+
+![Shape issue](Screenshots/linedraw.gif)
+
+My solution was to ask AI to refine the shape, make it more strict, and define the rain drop shape as circular with the bottom being wider than the top, which seemed to work. I also just had to add a boolean to check if the desired shape was accepted so that the game would unpause after drawing a correct one, which got rid of the redundancy of needing to let go of the draw button after drawing any shape. If you drew the correct symbol, bam, back into the gameplay you go. This was a well needed change for better user experience and improved combat flow.
+
+Once again, despite earlier thoughts about flow, this felt so much better to play than previously. It felt almost naturally. The brief pause in combat was relaxing and I did not feel that it disrupted the flow of combat all too much, rather it allowed the player to regain their ground and get right back into it without much hassle.
+
+Oh and I just used a rain drop shape to activate the rain system I have previously implemented as a test/placeholder.
+
+![Finalized action input system](Screenshots/teardrawpause.gif)
