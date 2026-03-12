@@ -343,7 +343,7 @@ For the latter, the fishing process itself will be a minigame, but I have not ye
 
 Either, fish will be included within the game, but rather act as an antagonizing force that may take away the clothes from your line, so you must keep them at bay utilizing repellent or something (don't ask how fish got into a washing machine), which will act as another layer of depth to the fishing minigame. Or, the washing machine may speed up at times and you must keep your footing to not be swept away when it gets too strong by inputting specific movement keys. The issue with the latter is that I want the game to be chill, so it can't be anything too intense or frequent.
 
-### Prototyping!!!
+### Look/feel
 
 I decided to start this time with a look/feel prototype rather than implementation, which I have been doing so far up until this point.
 I DO have a fishing minigame in mind, as I may make it similar to Guild Wars 2's fishing minigame, one I find quite fun. As shown in the screenshot below, you must maintain the green bar within the yellow area to weaken the fish's strength (shown as the small yellow bar at the bottom). The green bar representing the fish may change directions at random and will have random speeds, so your reaction time may have to be fast at times.
@@ -370,7 +370,7 @@ The fishing rod will also be a simple bent paperclip with string, as it's a comm
 
 ![Fishing Rod and Wings](Screenshots/wings-rod.png)
 
-These sketches translated quite well into 3D as shown by my moth here.
+These sketches translated quite well into 3D as shown by my moth here, which is great as I wasn't sure if a chibi-style drawing would translate well into 3D.
 
 ![3D Moth](Screenshots/blender-moth.png)
 
