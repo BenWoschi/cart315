@@ -260,3 +260,118 @@ Once again, despite earlier thoughts about flow, this felt so much better to pla
 Oh and I just used a rain drop shape to activate the rain system I have previously implemented as a test/placeholder.
 
 ![Finalized action input system](Screenshots/teardrawpause.gif)
+
+# Second Ideation Prototype | Process Journal
+
+## 03/11/2026
+
+### Shifting Ideas
+
+Over the break, I've been debating on switching my idea. This began during the class before the break, where one line stood out in particular during the presentation: the fact that many junior designers often trap themselves by staying attached to a certain idea. I feel like that has been me throughout the entire semester; clinging to the idea of a input action system in a 2D game. I feel like I've trapped myself by not brainstorming and/or prototyping enough. Therefore, I decided to restart from scratch.
+
+I did mess up last journal entry by not conceptualizing and progressing through the ideas I made during the ideation workshop the week prior. I was too attached to my previous idea, and did not resonate with the ideas that were made during the workshop, aside from one. However, that one idea was way too complex and time consuming for the scope of this course.
+
+I decided to enact my own mini ideation workshop.
+
+![Game ideas in notepad](Screenshots/ideations.png)
+
+Initially, I was hooked on the idea of speed and momentum, utilizing physics to reach from point A to B, akin to the game Haste.
+
+![Haste Game](Screenshots/haste.png)
+
+I used the combination of words: Momentum + Flying + Gliding
+I was inspired by Guild Wars 2's griffon gliding system and Haste's momentum to create a game where the player glides through an environment from one point to another, utilizing bursts of wind and maneuvers to maintain speed without stalling. This reminded me of the game Sky: Children of the light. A social game where each player is a moth that is able to glide through beautiful scenic environments with others, and collecting light to be spent on cosmetics.
+
+![Sky: Children of the Light](Screenshots/sky-children-of-the-light.gif)
+
+This was the main gameplay loop for Sky: CotL: Glide through beautiful environments, socialize, explore, collect resource, spend resources, repeat.
+It was a combination of both intrinsic and extrinsic motivation... that I don't think I would be able to achieve, especially given our timeframe.
+
+Sure, I could implement a gliding system, but what's the point if I can't create scenic environments to glide through?
+Furthermore, imagine gliding through an empty world, as I do not have the capabilities to setup multiplayer networking.
+Even then, I could implement a resource, but I would not have the time to model many different cosmetics to give the player.
+What if I did add cosmetics? What would then be the point if you were not able to show them off to others?
+
+All of these aspects within the core gameplay loop feed into one another, that even if I were to take one of those away, it would be a pretty boring game without it.
+
+Therefore, I started to reconsider. I could amp up the rush factor of the flying/gliding, by shifting the focus to be exclusively on fast-paced gliding while the player attempts to avoid obstacles, but I still don't think I have the ability to create large sprawling environment(s).
+
+### Setting Goals
+
+With all of these issues in mind, I have five key questions I must ask myself:
+
+1. What type of game do I want to make?
+2. How do I create a 3D game with a small/limited environment?
+3. How do I create a satisfying gameplay loop?
+4. Similarly, how do I want the player to feel?
+5. Most importantly, how do I create something within my capabilities using the allocated time that is left for the semester?
+
+### Shifting Ideas (again)
+
+I love moths, they are really cute, I wanted to keep that aspect from Sky: CotL and carry it over into my next idea.
+
+So here are my new 3 words: Moth + Fishing + Chill
+
+I chose these at random, and moths + fishing do not belong together normally at all. This may seem really strange as I chose this combination at random, but after playing a multitude of games all utilizing interesting fishing systems, I came up with a new idea.
+
+A game where you play as a moth, where you must fish for new clothes in a washing machine.
+
+This concept immediately solves one of my previous issues: the environment. As shown in this sketch: it will take place solely atop a washing machine, which is relatively simple to model. And yes this will be in 3D.
+
+![Concept](Screenshots/wm.png)
+
+Here's a good question though, but why?
+
+Well, moths are known to eat your fabric, so I think it fits. I want the game to take one of two directions. Either, you fish up clothes to turn into scraps to munch on. Or, rather than an insatiable appetite for fabric, the moth utilizes those clothes to satisfy their insatiable appetite for new drip (fashion). Each direction has it's own issue that I have yet to solve however.
+
+Issue #1: What would be the endgoal? Sure, you fish to keep yourself alive by eating the fabric, but what then? This path lacks strong progression structure, there's no long-term goal.
+
+Issue #2: I decided to take this path as a spin on a now dead social game called Webfishing, where you fish with others in a social setting to fill out your fish catalog and earn money at the same time to acquire different cosmetic items and show off to others. But therein lies the issues for this direction: my inability to code multiplayer functionality, as well as coding and modelling many different kinds of fish and cosmetics to earn.
+
+![Webfishing](Screenshots/webfishing.png)
+
+That is why I decided to skip the middleman entirely and fish for new clothes directly rather than catching many different types of fish and obtaining clothes from there, eliminating the need for different types of fish. This is a less satisfying experience in my opinion but one that seems more doable and satisfying in the long run. Multiplayer in my experience, for fishing anyways, is not needed. The simple goal of (completion) collecting all cosmetic items while fishing is usually satisfying enough for most. I run into an issue I stated earlier though: modelling all the cosmetic items. This is a long process that I'm not sure I will be able to accomplish. If so, I will need to keep the number of cosmetics low, maybe around a dozen for the scope of this game with recolours included.
+
+This concept is much smaller in scope and doable, yet comes with its own set of challenges:
+
+1. As I said before, modelling all cosmetics will be time consuming.
+2. 3D animation. I will keep it simple, but I have still not yet animated anything in 3D, it will be a challenge.
+3. Utilizing 3D in Unity. I have not yet attempted anything within the 3D studio in Unity, so it will take some time.
+4. Extra minigames/variables to keep the game from immediately feeling repetitive.
+
+For the latter, the fishing process itself will be a minigame, but I have not yet decided on any other variables to keep the game from getting too stale too quickly, even with its short length. I thought of two so far, but I am still not sure.
+
+Either, fish will be included within the game, but rather act as an antagonizing force that may take away the clothes from your line, so you must keep them at bay utilizing repellent or something (don't ask how fish got into a washing machine), which will act as another layer of depth to the fishing minigame. Or, the washing machine may speed up at times and you must keep your footing to not be swept away when it gets too strong by inputting specific movement keys. The issue with the latter is that I want the game to be chill, so it can't be anything too intense or frequent.
+
+### Prototyping!!!
+
+I decided to start this time with a look/feel prototype rather than implementation, which I have been doing so far up until this point.
+I DO have a fishing minigame in mind, as I may make it similar to Guild Wars 2's fishing minigame, one I find quite fun. As shown in the screenshot below, you must maintain the green bar within the yellow area to weaken the fish's strength (shown as the small yellow bar at the bottom). The green bar representing the fish may change directions at random and will have random speeds, so your reaction time may have to be fast at times.
+
+![GW2 Fishing Bar](Screenshots/gw2fishing.jfif)
+
+For the overall look and style of the game, I want to keep it cute but very simple and easy to work with, similar to the Sky: CotL models shown here, except simplified even further in my sketch.
+
+![Sky: CotL Model](Screenshots/skymodels.jpg)
+
+My Sketch of the front and side view:
+
+![Moth Front View](Screenshots/mothfront.png)
+
+![Moth Side View](Screenshots/mothside.png)
+
+I did begin to sketch a different chibi style earlier as shown here:
+
+![Old Chibi](Screenshots/old-chibi.png)
+
+But I realized as I was drawing the hair, this would not only indirectly complicate the models, because I KNOW people would want to change their hairstyle, so I did away with hair entirely to avoid this issue. But also because I wanted to keep the player gender-neutral.
+
+The fishing rod will also be a simple bent paperclip with string, as it's a common household item that you can find anywhere, and light enough for a cartoony moth to hold. The wings I decided upon are also in the image.
+
+![Fishing Rod and Wings](Screenshots/wings-rod.png)
+
+These sketches translated quite well into 3D as shown by my moth here.
+
+![3D Moth](Screenshots/blender-moth.png)
+
+However, as you can see, I have yet to texture it. This is what I'm still going to test out first, as I don't know what visual style I want for my game yet. Like my model, it will be simple and low fidelity, utilizing bright colours and minimal shading, but I have yet to try anything in practice yet. This is my goal for my next journal: Figure out the visual style, model other components of my game, and figure out a more focused idea of what I would like to achieve by the end of this project.
