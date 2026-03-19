@@ -428,7 +428,7 @@ Regardless, as shown in my last journal, I am taking heavy inspiration from Guil
 
 Once again, I thought back to the experience of fishing, where it becomes significantly more difficult to tire the fish out if it is at the longest points away from the center, which is to the left and right. I decided to mimic this by slowing down and adding "tension" to the user's mouse while near the edges of the fishing bar.
 
-## IMAGE HERE
+![Fishing Test](Screenshots/fishingtest.gif)
 
 It adds a layer of difficulty to the fishing on top of everything else. This implementation prototype still requires a lot of tweaking and changes, but for now this is what I have for just the base fishing minigame.
 
@@ -438,7 +438,7 @@ While I have been thinking about my player experience and the core gameplay desi
 
 I began by just simply finding a colour palette and seeing how it would look if I were to very roughly colour the sketch I created last week. I found one that I liked and will be sticking with it.
 
-## IMAGE HERE
+![Rough Coloured Sketch](Screenshots/colour-sketch.png)
 
 I also managed to texture and create the rigging for my base moth model, again from last week.
 
@@ -468,12 +468,14 @@ The skeleton wasn't so bad, but what took me hours was the weight painting that 
 
 The walk/run animation on the other hand was not so simple, and took me a long time as I had no reference to go off of. It still isn't great by any means but for someone who doesn't animate, I am quite happy with the result.
 
+![Moth Run](Screenshots/mothRun.gif)
+
 ### Exporting to Unity
 
 This was something I have never done before, so it was quite the learning process. I followed this tutorial which helped a lot. It also helped me with adding my two animations.
 https://www.youtube.com/watch?v=xqBB4UghJHk&t=7s
 
-It took a few tries, as my biggest issue was that my wings only appeared on one side while being completely invisible when facing away. As I later found out, this was due to the normals of the model only facing one direction because my wings were flat planes. Therefore, I had to go back into blender, separate the wings from the rest of the body, add a solidify modifier, and exported it back into Unity, which solved the issue, because the normals on flat planes only ever face one direction.
+It took a few tries, as my biggest issue was that my wings only appeared on one side while being completely invisible when facing away. As I later found out, this was due to the normals of the model only facing one direction because my wings were flat planes. Therefore, I had to go back into blender, separate the wings from the rest of the body, add a solidify modifier, and exported it back into Unity, which solved the issue. This is because the normals on flat planes only ever face one direction.
 
 I also had the issue of an axis mismatch, which made the walking animation look weird. Once again, I had to go back into blender, scrub through my animations and rotate the model to the correct axis.
 
