@@ -375,3 +375,111 @@ These sketches translated quite well into 3D as shown by my moth here, which is 
 ![3D Moth](Screenshots/blender-moth.png)
 
 However, as you can see, I have yet to texture it. This is what I'm still going to test out first, as I don't know what visual style I want for my game yet. Like my model, it will be simple and low fidelity, utilizing bright colours and minimal shading, but I have yet to try anything in practice yet. This is my goal for my next journal: Figure out the visual style, model other components of my game, and figure out a more focused idea of what I would like to achieve by the end of this project.
+
+# Third Ideation Prototype | Process Journal
+
+## 03/18/2026
+
+### Initial Concepts
+
+I feel like I was still too ambitious last week. If I had more time there would be many things that I think would be beneficial to a game like mine. However, I must cut some things and keep the scope of my game on the smaller side to accomodate the little time I have left. Therefore, the concept of fishing for your own clothes will be completely scrapped.
+
+Since then, I have been constantly thinking about what I really want my game to be and what I want the player to experience. Thinking about it as less of a game but more of an experience.
+
+![Random Concept Ideas](Screenshots/initialconcept.png)
+
+I started jotting down ideas to give myself a more clear vision as to what I wanted to focus on and what I wanted my concept to be. As you can see, I initially embraced the realistic aspect about feeding your moth children (larvae) by fishing for keratin that is contained within clothes. There were some stakes but I still wanted to keep it mainly chill, and I did want a twist of some kind on the classic action of fishing.
+
+However, I have since done away with the initial concept and will be cutting out the middle-man. I will be embracing the 'moths eat clothes' stereotype and make it a game about survival. At least, that's what I hope to achieve. The fishing will be challenging, but needed to be done in order to feed yourself and keep yourself alive. The stakes will be higher as failing too many fishing minigames will starve the moth. Therefore, in order to win, the player must succesfully complete sequential fishing minigames in order to feed themselves and stay alive.
+
+### Core Design Values and Player Experience
+
+My core design value will therefore be: Survival through skillful fishing.
+
+With my sole focus now being on the action of fishing itself, I did some more brainstorming.
+
+![Fishing Minigame Ideas](Screenshots/fishingideas.png)
+
+I thought about the actual experience of fishing. How it can be both relaxing and intense once a fish bites the line. It creates suspense, as the fisherman does not know how long it will take for a fish to bite. Therefore, a randomized timer will be added for each fishing minigame to begin once the line is cast.
+
+This further got me thinking about how occasionally, a fish may bite the line, but the hook will not lodge itself effectively, needing further input from the fisherman to quickly tug on the rod to lodge the hook through a fish (in order to begin reeling). A potential quicktime event may help convey this feeling, as the player will need to be quick on their feet, and could increase the suspense before the minigame.
+
+This quicktime event could be needing the player to press a random key on their keyboard within a very short amount of time.
+
+This requires the player to both be patient and have fast enough reaction time to begin fishing. Already this is sort of building a foundation on the experience I want the player to have.
+
+Next comes the fishing itself. Fishing is obviously a physical pass-time. This is something that would be possible to convey in a game through the use of an external device/motion controller and/or something with haptic feedback (look at Wii Sports). However, as I am using only mouse and keyboard, this would not be possible.
+
+![Wii Sports Baseball](Screenshots/wiisports.gif)
+
+Therefore I would need to find a way to convey the sense of tension and challenge through this one control scheme.
+
+The mouse, being a device that has motion input would be the obvious choice in this scenario. My immediate thoughts gravitated towards the active part of fishing, where you must tire the fish out before reeling it in, by pulling in the opposite direction in which the fish is trying to escape. Oftentimes they are sporadic and will change directions frequently to throw off the fisherman and potentially snap his line.
+
+This will be the win/loss condition of the minigame: a tension and/or exhaustion meter to keep track of whether the player is succesful at tiring and catching the fish, or failing will snap the line. As shown in my notes, it may remain invisible to keep the player on their toes and add to the challenge.
+
+Looking back, this may also create a degree of frustration in the player, so I may keep it visible. Just like in real life, you will have no idea as to how close you are to either tiring the fish out or if it will end up snapping the line, therefore it remains on point with the experience. But this is still a game at the end of the day, and making it invisible may just end up frustrating the player and making them quit.
+
+### Adding more layers onto difficulty
+
+Regardless, as shown in my last journal, I am taking heavy inspiration from Guild Wars 2's fishing minigame, at least in terms of UI and how it functions. It works, and out of all the fishing minigames I have played over the years, it's one of my favourites and the most engaging. It could sometimes be challenging through the speed of more rare fish, but I find it to be quite simple in terms of difficulty.
+
+![GW2 Fishing Bar](Screenshots/gw2fishing.jfif)
+
+Once again, I thought back to the experience of fishing, where it becomes significantly more difficult to tire the fish out if it is at the longest points away from the center, which is to the left and right. I decided to mimic this by slowing down and adding "tension" to the user's mouse while near the edges of the fishing bar.
+
+## IMAGE HERE
+
+It adds a layer of difficulty to the fishing on top of everything else. This implementation prototype still requires a lot of tweaking and changes, but for now this is what I have for just the base fishing minigame.
+
+### Aesthetics
+
+While I have been thinking about my player experience and the core gameplay design that I wanted for my game, I began to work on the models and a little bit of the style. Despite the challenge I want to add, I'm still going to keep this game simple in its aesthetics.
+
+I began by just simply finding a colour palette and seeing how it would look if I were to very roughly colour the sketch I created last week. I found one that I liked and will be sticking with it.
+
+## IMAGE HERE
+
+I also managed to texture and create the rigging for my base moth model, again from last week.
+
+I went with this super flat shading style with an outline that is inspired by (once again) Okami with it's use of outlines and also a game called Monument Valley which was my main inspiration for this flat shading style.
+
+![Okami](Screenshots/okamioutline.jpg)
+
+![Monument Valley](Screenshots/monumentvalley.png)
+
+This was the result in Blender.
+
+![Blender Stylized Moth](Screenshots/stylizedmothb.png)
+
+There was one issue though, as I would not be able to export the outlines (which used geonodes) to Unity. Thankfully, I found these two tutorials that teach me how to do exactly that. https://www.youtube.com/watch?v=Bm6Bmcjd1Mw https://www.youtube.com/shorts/FyEiPibJuRU
+
+I would later find out by the time I got my model to work in Unity, that I'd have a ton of issues doing this despite both of the tutorials, and as of writing this I still can't seem to figure out what the issue is.
+
+### Rigging and Animating
+
+Blender has an addon called Rigify that helps immensely with rigging, as if you were creating a human model, whether detailed or not, has prebuilt skeletons to use. However, as you saw, my moth is not human. I had to create the entire rigging from scratch.
+
+![Moth Skeleton](Screenshots/mothskele.png)
+
+The skeleton wasn't so bad, but what took me hours was the weight painting that I also had to do from scratch in order to make the joints work. This was the most tedious and time-consuming process, but also the most rewarding. As once I finished, I was able to create a simple Idle animation.
+
+![Moth Idle](Screenshots/mof-idle.gif)
+
+The walk/run animation on the other hand was not so simple, and took me a long time as I had no reference to go off of. It still isn't great by any means but for someone who doesn't animate, I am quite happy with the result.
+
+### Exporting to Unity
+
+This was something I have never done before, so it was quite the learning process. I followed this tutorial which helped a lot. It also helped me with adding my two animations.
+https://www.youtube.com/watch?v=xqBB4UghJHk&t=7s
+
+It took a few tries, as my biggest issue was that my wings only appeared on one side while being completely invisible when facing away. As I later found out, this was due to the normals of the model only facing one direction because my wings were flat planes. Therefore, I had to go back into blender, separate the wings from the rest of the body, add a solidify modifier, and exported it back into Unity, which solved the issue, because the normals on flat planes only ever face one direction.
+
+I also had the issue of an axis mismatch, which made the walking animation look weird. Once again, I had to go back into blender, scrub through my animations and rotate the model to the correct axis.
+
+Despite the growing pains, the end result was one of immense satisfaction. Seeing your creating working as intended within a game engine brought me so much joy.
+I don't express myself much in these but I have to say: Look at him. He's so silly, I love seeing him run around.
+
+![Moth In Unity](Screenshots/mothMove.gif)
+
+Overall, this was a very time-consuming week but I am so glad I made significant progress in the style/aesthetics, as well as finding a more focused direction as to where I want to take my game and what I want the player to experience.
