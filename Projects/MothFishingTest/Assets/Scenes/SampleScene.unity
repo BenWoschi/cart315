@@ -1804,11 +1804,11 @@ MonoBehaviour:
   playerBar: {fileID: 1016039325}
   bigBar: {fileID: 30746875}
   fishRect: {fileID: 1382169146}
-  fishSpeed: 200
+  fishSpeed: 170
   waitTime: 0.1
   exhaustionMeter: {fileID: 843493462}
   gainRate: 0.2
-  lossRate: 0.4
+  lossRate: 0.5
 --- !u!1 &1657430317
 GameObject:
   m_ObjectHideFlags: 0
