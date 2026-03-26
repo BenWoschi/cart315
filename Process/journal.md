@@ -485,3 +485,90 @@ I don't express myself much in these but I have to say: Look at him. He's so sil
 ![Moth In Unity](Screenshots/mothMove.gif)
 
 Overall, this was a very time-consuming week but I am so glad I made significant progress in the style/aesthetics, as well as finding a more focused direction as to where I want to take my game and what I want the player to experience.
+
+# Fourth Ideation Prototype | Process Journal
+
+## 03/26/2026
+
+### Slow week, weak visuals
+
+This journal entry will be shorter as not much happened over the course of this past week. It's been a really slow week and I have been generally exhausted and have not worked on much, which is a shame considering the amount of work I did last week.
+
+### What have I done?
+
+So I began by modelling the main washing machine the moth will be standing atop of, as well as a dryer to place next to it, mainly for background purposes, and a window. The latter I will explain later.
+
+I started with just the washing machine and quickly made the dryer because I felt like it and I thought it could add a bit more visual detail to my simple game.
+
+![Initial Washing Machine](Screenshots/washingmachine.png)
+
+![With dryer](Screenshots/wmdryer.png)
+
+With that done, I began to colour them. I utilized the colour palette I created last week but I had an issue. It was way too bright. The colours I previously chose were way too vibrant, my eyes hurt just looking at it.
+
+![Initial Colours](Screenshots/initialvisuals.png)
+
+I realized too there would be some issues with contrast. Even with the orange wings, the bright white on bright cyan from the moth would make it difficult to follow the little moth as most people's eyes would probably be singed during the process. The bright on bright colours just provided very little contrast and may cause visual confusion to some players. I tried utilizing desaturated variants but the same issue still continued to occur, so I decided to ditch the previous colour palette.
+
+Rather, I found a darker but flat visual style I liked on Pinterest from a piece of artwork and created my own colour palette. I tried using Adobe Colour but found it limiting.
+
+![New colour palette](Screenshots/a-colours.png)
+
+![New colours on objects](Screenshots/coloursalmostfinal.png)
+
+With this new palette in mind, I decided to go down a route I previously thought about but disregarded, and that was to set the game during the night. Moths are known to be drawn to light as they navigate utilizing it. I thought about utilizing emissions and having my water glow, which may explain why the moth was attracted to the washing machine in the first place. If I were to use light however, I may have to do away with the unlit/flat shading I initially desired.
+
+I still don't know, I may change the visual style many times in the upcoming weeks, I have ideas going down both routes but I have to see which sticks and looks best.
+This was also why I made a window, as I could use it as the main source of light for the scene. I still haven't decided on my main camera orientation yet either so whether it's visible or not, I don't know. It took about 2 minutes to make so it wasn't a waste of time, just something quick that may be useful later on.
+
+This is their general placement and current visual setup in scene view.
+
+![Scene view](Screenshots/visualsid.png)
+
+I also added a mesh collider to the washing machine and invisible walls that would prevent the player from running off.
+
+### What didn't I do?
+
+A lot. I barely accomplished any of the goals I set out for myself this week.
+Which included:
+
+- Modelling the fishing rod
+- Creating casting and reeling animations
+- Adding the water asset I found a while back
+- Implemented a prototype of my second minigame idea
+- Thought about 2 other prototype ideas
+- Finalized visual style and cohesion
+
+There was a lot I did not accomplish.
+
+The only partially complete one was that I thought about at least my second minigame, which will be an Osu typing minigame, where the player must watch for shrinking rings and press the corresponding sequenced letters on their keyboard in time.
+
+![Osu Example](Screenshots/badeu-osu.gif)
+
+The thought about utilizing the mouse for this minigame did cross my mind, as Osu differentiates itself from other rhythm games by focusing on such, but I'm worried it will hurt accessibility for my simple game. First off, I am aware that not everyone will have a mouse, and even those with laptops will struggle. Trackpads I find to be extremely unreliable which could really mess up some players that will be playing my game on their own laptops or computers. I am largely creating this game on a laptop with trackpad myself so I can first-hand see how it will affect others playing my game to those who are in a similar position.
+
+My initial minigame prototype was fine, it wasn't an instant loss and gave a lot of leeway to catch up while still maintaining a challenge. An Osu-styled minigame however would be much more unforgiving.
+
+Moreover, Osu and similar games ask the player to have a great deal of accuracy and precision with the mouse. I play a lot of shooters, so that is something I am fine with. I'd say that most other players do not, and may struggle with this aspect, thus limiting accessibility even further.
+
+Sure, there are ways to tweak it and make it more accessible, but why bother going through that effort when I can just utilize key presses and somewhat fast reaction time to achieve my goal and bypass all those headaches in the process.
+
+As I did not do any kind of implementation, I will not be showing anything, but at least I have 2 out of the four minigames thought of.
+
+### Issues
+
+I had a few issues over the course of the work periods I set for myself.
+
+One that I eventually solved were textures not embedding into the FBX files when I imported them. I realized because I was utilizing just an emission shader node rather than the Principled BSDF node in Blender, as Unity can't read just sole emission nodes.
+
+The other annoying problem I has was this one.
+
+![Model acting weird](Screenshots/spawnissue.gif)
+
+Spawning in when starting the game would cause my moth to rotate 90 degrees and hover over the surface. I have absolutely no idea what is going on. I checked the base FBX, the mesh itself, as well as the bones and armature.. and none of them seemed to have been the issue. It may have to do with my blender file, although I am not sure. It's weird and really messing with the collisions on some of my objects. I still can't figure this one out and will have to return to it.
+
+Lastly, I am still having trouble with the black outlines I want to implement, although I may have to abandon them entirely if I can't figure out how to make it work. I'll see later on.
+
+### What's left?
+
+A great deal of work, and quite frankly too much to list here. I will set my goals for next week to finish what I started this week, and hopefully then some. I need to pick up the pace again, as I also have a few other projects due in a few weeks time, so time is critical right now.
