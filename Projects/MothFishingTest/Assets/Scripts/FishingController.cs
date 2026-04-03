@@ -39,6 +39,8 @@ public class FishingController : MonoBehaviour
 
         // Fish initial target
         SetRandomTarget();
+
+        exhaustionMeter.value = 0.5f;  // 50%
     }
 
     void Update()
