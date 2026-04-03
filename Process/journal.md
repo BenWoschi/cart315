@@ -594,11 +594,13 @@ I wanted to:
 
 Despite low energy, I did manage to accomplish more than last week. I managed to create the fishing rod, in all its paperclippy glory.
 
-### ROD IMAGE HERE
+![Paperclip Rod](Screenshots/paperclip.png)
 
 I managed to create the 3 state animations for fishing, that being the casting, idling and reeling animations.
 
-### ANIMS HERE
+![Fishing Cast Animation](Screenshots/casting.gif)
+![Fishing Idle Animation](Screenshots/fishingidle.gif)
+![Fishing Reeling Animation](Screenshots/reeling.gif)
 
 Although they are significantly lower quality and do not have any kind of polish. I really wanted to make these look good but I just do not have the time to spend as much as I did for the initial running animation. Furthermore, the moth is tiny so it won't be too noticeable at least.
 
