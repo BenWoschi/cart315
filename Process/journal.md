@@ -576,3 +576,87 @@ A great deal of work, and quite frankly too much to list here. I will set my goa
 # Fifth Ideation Prototype | Process Journal
 
 ## 04/02/2026
+
+### Low energy, low motivation
+
+Similar to last week, this week has been rough, with all the projects due soon and a heavy workload, my energy and motivation have not been lower since. I once again fell short of the goals I had and worry as to how my final project will turn out. Writing these journals and documenting has been getting increasingly more difficult as well, but I will prevail.
+
+### What did I set out for myself and what did I accomplish?
+
+I wanted to:
+
+- Have a more defined visual style
+- Finish all 4 planned minigames
+- Implement the fishing mechanic
+- Create fishing animations
+- Create the fishing rod
+- Create the cloth visuals
+
+Despite low energy, I did manage to accomplish more than last week. I managed to create the fishing rod, in all its paperclippy glory.
+
+### ROD IMAGE HERE
+
+I managed to create the 3 state animations for fishing, that being the casting, idling and reeling animations.
+
+### ANIMS HERE
+
+Although they are significantly lower quality and do not have any kind of polish. I really wanted to make these look good but I just do not have the time to spend as much as I did for the initial running animation. Furthermore, the moth is tiny so it won't be too noticeable at least.
+
+I also managed to finalize a more coherent visual style, which was not planned originally but I think it looks quite nice. I spent last class with Malcolm going over to see how I would be able to somewhat replicate Monument Valley's art style and visuals, especially the lighting. He seemed to have a better eye than I did with being able to tell how the lighting was set up in these screenshots, so I appreciate his help greatly.
+
+![Monument Valley](Screenshots/monument1.png)
+![Monument Valley](Screenshots/monument2.png)
+
+The style uses a lot of different lights that affect only very specific objects which I was able to accomplish through layers, culling masks and in the project lighting settings to achieve a similar look.
+
+The moth stands out a bit and does not fit in as well with this aesthetic, which I boil down to colour preferences as well as character design, but it's still fine. I may tweak the lighting a bit but I was able to achieve a flat colour scheme with emissions and selective lighting.
+
+There was an issue with a spotlight I had parented to my moth, which used to show but out of nowhere it just kind of stopped working.
+
+![Moth Spotlight](Screenshots/spotlight.png)
+
+As shown here it exists and as far as I'm aware, should be working as it has been all of this time, yet it doesn't. I added this light as both a stylistic choice and for contrast. It adds a subtle glow beneath the moth to highlight the player's position at all times which also fits in with the Monument Valley-esque style I'm going for. I spent a while trying to figure out what the issue was, yet I have not been able to fix it.
+
+On top of all of that, I was able to utilize a free Unity store asset for my water, which I then tweaked heavily to match the visual style, which I think resembles the second monument valley screenshot above greatly. It looks nice and fits in.
+
+![Stylized Water](Screenshots/water.png)
+
+I did want to try and make the water swirl, as if the machine was turned on. I played around with the shader graph that created the water, but after a while I gave up. I didn't want to spend a crazy amount of time on it so I just left it as is. There were too many nodes in there with a system that I barely understand. Despite my efforts I couldn't accomplish it.
+
+### Speaking of not accomplishing...
+
+I have already begun to see many issues with both my process and what I will be able to deliver.
+
+Despite telling myself last week to focus on gameplay first and visuals second, my designer brain still refused to budge. Out of the 1 implemented minigame and 2 other ideas I have, with 1 additional one I need to think about, I implemented nothing. This is priority number 1 for me. As much as I want to add a menu system and nice UI, I think I will just skip on it and focus on gameplay, because as of right now, it looks nice, but that's about it.
+
+This highlights a larger issue I have with my game, and that is how shallow it is and how it veers off from my original pitch of fishing for survival.
+
+There is nothing on a gameplay or visual level that indicates "hungry" in my game. Sure, I could and will implement a hunger bar, but that will just clash with everything else I have done. The animations, visuals and everything scream bright and bubbly, not of desperation and hunger. I could implement a mechanic where you start off slow, and the more you fish and eat the faster you get, and even make a separate animation for slower walking. That is one path that I could take. It will probably be the one I stick with.
+
+As I sat here pondering on it for a while, I realized I could switch my focus once again to being more "scenic" and focusing on the minigames entirely. However, there's nothing really scenic in my game. Sure, visually it looks nice, but the camera is static and so is the environment with very little visuals to admire aside from the lighting. I may have the camera zoom in onto the moth when it fishes but that's it for dynamic visuals.
+
+I'm further reinforcing a big problem I have not only in game design but just in design as a whole, I spent so long focusing and working on the visuals, yet I fail to convey their meaning or make the game fun in this case. This is my absolute worst trait I have as a designer as a whole that I am struggling to break free of. I am quite literally telling myself to focus on the experience and gameplay or meaning, yet I still betray myself and focus solely on the surface-level visuals that do not compliment the game in this case.
+
+### Moving forward and more mistakes
+
+I will focus solely past this point on the minigames and the experience of fishing. I will first implement the minigames and tweak them accordingly. Thankfully I have already implemented the fishing animations to convey this as seen here, so it's just about finishing the gameplay aspect of it.
+
+![Fishing WIP](Screenshots/fishingwip.gif)
+
+It's not polished and I just implemented it, I will see if I can add physics without the line being cast instantaneously but that will be lower on my priority list.
+
+I was thinking of adding a whole menu screen and gameover but at this point it will be a lot of effort for the little time I have left. I will add simple UI elements later on and that will be it.
+
+I also need to sketch up a few quick different pieces of clothing to fish and have them float in the water as shadows. Each piece of clothing will give differing amounts of hunger back. I think I will just stick with the faster movement thing I proposed earlier, where you start off slow and after some fishing you will be able to move around faster.
+
+Thinking about movement also made me realize something else. What's the point of 3D? I created these objects, animations, and physics for what? This could have easily been done in a 2D pixel art style in first person without the need for complex 3D animations and physics. Just some simple 2D animations to focus on the minigames. Because as of right now, the 3D aspects serves absolutely zero gameplay purpose other than just for visual flair. It took me a while to realize this but I have complicated so many things for myself way too much.
+
+Regardless, as a junior designer I will learn from these mistakes and hopefully improve in the future. I will most likely cover this in my last journal entry but it's important to mention it now while it's in my head, with all these setbacks and poor design choices I have made.
+
+I will simply finish what I have started by this point. I will now think of a quick elevator pitch as suggested to sort of also help guide myself as to what I want to have done by next week.
+
+### Elevator Pitch
+
+A weakened moth must conquer fishing-based minigames to regain its strength and take flight once more.
+
+This is the one sentence elevator pitch that I will stick with now. I will not implement any flying, but I imagine that if I had more time, that would be the end goal and pay-off, allowing the player to freely fly around the room.
