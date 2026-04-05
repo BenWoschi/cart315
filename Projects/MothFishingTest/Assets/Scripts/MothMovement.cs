@@ -4,10 +4,17 @@ public class MothMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Animator animator;
-    public Transform camTransform; // Drag your Main Camera here in the Inspector
+    public Transform camTransform;
+    public RhythmGameManager rhythmManager;
 
     void Update()
     {
+        if (rhythmManager != null && rhythmManager.isActive)
+        {
+            animator.SetFloat("Speed", 0f); // stop running animation
+            return;
+        }
+
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 

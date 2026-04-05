@@ -3,6 +3,13 @@ using System.Collections;
 
 public class FishingInteractable : MonoBehaviour
 {
+    [Header("Camera")]
+    public Camera mainCamera;
+    public Transform player; // drag your Player here
+    public float zoomFOV = 40f;
+    public float zoomDuration = 1f;
+
+    private float originalFOV;
     [Header("Rod")]
     public GameObject fishingRod;
     public Transform handBone;         // The bone the rod will attach to
@@ -22,6 +29,8 @@ public class FishingInteractable : MonoBehaviour
     {
         if (interactPrompt != null)
             interactPrompt.SetActive(false);
+        if (mainCamera != null)
+            originalFOV = mainCamera.fieldOfView;
     }
 
     void Update()
@@ -36,6 +45,7 @@ public class FishingInteractable : MonoBehaviour
     // Called when pressing E
     public void StartFishing()
     {
+        StartCoroutine(ZoomCamera(zoomFOV));
         isFishing = true;
 
         // Freeze movement
@@ -102,6 +112,7 @@ public class FishingInteractable : MonoBehaviour
     // 🎬 Called by Animation Event at end of Reel
     public void OnReelFinished()
     {
+        StartCoroutine(ZoomCamera(originalFOV));
         // Hide the rod
         if (fishingRod != null)
             fishingRod.SetActive(false);
@@ -142,5 +153,36 @@ public class FishingInteractable : MonoBehaviour
         playerInRange = false;
         if (interactPrompt != null)
             interactPrompt.SetActive(false);
+    }
+    IEnumerator ZoomCamera(float targetFOV)
+    {
+        float startFOV = mainCamera.fieldOfView;
+        float time = 0f;
+
+        while (time < zoomDuration)
+        {
+            time += Time.deltaTime;
+            float t = time / zoomDuration;
+
+            mainCamera.fieldOfView = Mathf.Lerp(startFOV, targetFOV, t);
+            yield return null;
+        }
+
+        mainCamera.fieldOfView = targetFOV;
+    }
+    public void EndFishing()
+    {
+        Debug.Log("EndFishing called");
+
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.Rebind();   // 🔥 THIS IS THE KEY
+            playerAnimator.Update(0f);
+        }
+
+        isFishing = false;
     }
 }

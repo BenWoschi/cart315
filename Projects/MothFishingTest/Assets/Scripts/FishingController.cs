@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class FishingController : MonoBehaviour
 {
+    public FishingInteractable fishingInteractable;
+    private bool isGameOver = false;
+
     [Header("Player Settings")]
     public RectTransform playerBar;
     public RectTransform bigBar;
@@ -40,7 +43,7 @@ public class FishingController : MonoBehaviour
         // Fish initial target
         SetRandomTarget();
 
-        exhaustionMeter.value = 0.5f;  // 50%
+        exhaustionMeter.value = 0.75f;
     }
 
     void Update()
@@ -83,11 +86,11 @@ public class FishingController : MonoBehaviour
 
         if (exhaustionMeter.value >= 1f)
         {
-            Debug.Log("Success!");
+            EndMinigame(true);
         }
         else if (exhaustionMeter.value <= 0f)
         {
-            Debug.Log("Line broke!");
+            EndMinigame(false);
         }
     }
 
@@ -107,5 +110,26 @@ public class FishingController : MonoBehaviour
         float bMax = b.anchoredPosition.x + b.rect.width / 2f;
 
         return (bMax >= aMin && bMin <= aMax);
+    }
+    void EndMinigame(bool success)
+    {
+        if (fishingInteractable != null)
+        {
+            fishingInteractable.EndFishing(); // you’ll create this
+        }
+
+        if (isGameOver) return;
+        isGameOver = true;
+
+        if (success)
+            Debug.Log("Success!");
+        else
+            Debug.Log("Line broke!");
+
+        // Stop updates
+        enabled = false;
+
+        // Hide UI (optional)
+        gameObject.SetActive(false);
     }
 }
