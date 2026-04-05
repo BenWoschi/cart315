@@ -74,7 +74,6 @@ public class RhythmNoteUI : MonoBehaviour
 
             float startScale = (approachRing.rect.width / circle.rect.width) * 1.5f;
             approachRing.localScale = Vector3.one * Mathf.Lerp(startScale, 1f, t);
-
             if (timeToHit < -0.3f)
             {
                 isDestroyed = true;

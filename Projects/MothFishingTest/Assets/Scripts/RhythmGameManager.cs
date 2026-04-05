@@ -96,13 +96,8 @@ public class RhythmGameManager : MonoBehaviour
 
     void HandleInput(KeyCode key)
     {
-        Debug.Log("Current Index: " + currentIndex);
-        Debug.Log("Sequence Count: " + sequence.Count);
-        Debug.Log("HandleInput called with: " + key);
         if (currentIndex >= sequence.Count) return;
         RhythmNote note = sequence[currentIndex];
-        Debug.Log("Expected Key: " + note.key);
-        Debug.Log("Hit Time: " + note.hitTime + " | Current Time: " + Time.time);
 
         if (note.ui == null || note.ui.isDestroyed)
         {
@@ -111,6 +106,13 @@ public class RhythmGameManager : MonoBehaviour
         }
 
         float error = Mathf.Abs(Time.time - note.hitTime);
+        float rawDiff = Time.time - note.hitTime;
+        Debug.Log(
+    $"KEY: {key} | EXPECTED: {note.key} | " +
+    $"rawDiff: {rawDiff:F3} | error: {error:F3} | " +
+    $"window: {okayWindow}"
+);
+        Debug.Log("Key match? " + (key == note.key));
 
         if (key == note.key && error <= okayWindow)
             Hit(note);
@@ -184,7 +186,8 @@ public class RhythmGameManager : MonoBehaviour
             GameObject obj = Instantiate(notePrefab, noteContainer);
             RhythmNoteUI ui = obj.GetComponent<RhythmNoteUI>();
 
-            note.hitTime = Time.time + approachTime;
+            float visualDelay = ui.fadeInDuration + timeBetweenNotes;
+            note.hitTime = Time.time + approachTime + visualDelay;
             ui.Init(note.key, note.hitTime, approachTime);
 
             RectTransform rect = obj.GetComponent<RectTransform>();
