@@ -30,14 +30,21 @@ public class RhythmGameManager : MonoBehaviour
         KeyCode.J, KeyCode.K, KeyCode.L
     };
 
-    void Start()
+    void OnEnable()
     {
-        Debug.Log("Rhythm Minigame Starting!");
         StartMinigame();
     }
 
     public void StartMinigame()
     {
+        StopAllCoroutines(); // 🔥 IMPORTANT: kill old coroutines
+
+        // 🔥 Clear old notes from scene
+        foreach (Transform child in noteContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
         isActive = true;
         sequence.Clear();
         currentIndex = 0;
@@ -51,6 +58,12 @@ public class RhythmGameManager : MonoBehaviour
     {
         isActive = false;
         Debug.Log(success ? "SUCCESS" : "FAIL");
+
+        // 🔥 stop spawning immediately
+        StopAllCoroutines();
+
+        // Optionally hide the game
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -60,12 +73,19 @@ public class RhythmGameManager : MonoBehaviour
 
         // 🔴 AUTO MISS (player too late)
         RhythmNote note = sequence[currentIndex];
+        //never go to next index?
+        Debug.Log(currentIndex);
+        // Debug.Log(note.key);
+        // Debug.Log(note.hitTime);
 
+        //YOU DO NOT NEED THIS HERE AS IN Rhythm nOTE it takes care of this
+        //SABINE READDED :)
         if (note.ui != null && !note.ui.isDestroyed)
         {
-            if (Time.time > note.hitTime + okayWindow)
+            // //SABINE READDED
+            float timeToHit = note.hitTime - Time.time;
+            if (timeToHit < okayWindow)
             {
-                Debug.Log("Auto MISS (too late)");
                 Miss(note);
                 return;
             }
@@ -105,16 +125,11 @@ public class RhythmGameManager : MonoBehaviour
             return;
         }
 
-        float error = Mathf.Abs(Time.time - note.hitTime);
-        float rawDiff = Time.time - note.hitTime;
-        Debug.Log(
-    $"KEY: {key} | EXPECTED: {note.key} | " +
-    $"rawDiff: {rawDiff:F3} | error: {error:F3} | " +
-    $"window: {okayWindow}"
-);
-        Debug.Log("Key match? " + (key == note.key));
+        //SABINE ADDED : is not error - is timeLEFT before you missed
+        float timeLeft = Mathf.Abs(Time.time - note.hitTime);
+        Debug.Log("timeLeft" + timeLeft);
 
-        if (key == note.key && error <= okayWindow)
+        if (key == note.key && timeLeft >= okayWindow)
             Hit(note);
         else
             Miss(note);
@@ -122,6 +137,7 @@ public class RhythmGameManager : MonoBehaviour
 
     void Hit(RhythmNote note)
     {
+        Debug.Log("hit");
         if (note.ui != null && !note.ui.isDestroyed)
         {
             note.ui.ShowHit();
@@ -129,6 +145,7 @@ public class RhythmGameManager : MonoBehaviour
         }
 
         currentIndex++;
+        Debug.Log(currentIndex);
 
         if (currentIndex >= sequence.Count)
             EndGame(true);
@@ -161,7 +178,7 @@ public class RhythmGameManager : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             KeyCode key = (Random.value < 0.3f && lastKey != KeyCode.None) ?
-                lastKey : possibleKeys[Random.Range(0, possibleKeys.Length)];
+            lastKey : possibleKeys[Random.Range(0, possibleKeys.Length)];
 
             RhythmNote note = new RhythmNote
             {
@@ -178,16 +195,17 @@ public class RhythmGameManager : MonoBehaviour
     IEnumerator SpawnNotesSequentially()
     {
         List<Vector2> usedPositions = new List<Vector2>();
+        Debug.Log(sequence);
 
         foreach (var note in sequence)
         {
-            if (!isActive) yield break;  // stop spawning if game ended
+
+            if (!isActive) yield break;
 
             GameObject obj = Instantiate(notePrefab, noteContainer);
             RhythmNoteUI ui = obj.GetComponent<RhythmNoteUI>();
 
-            float visualDelay = ui.fadeInDuration + timeBetweenNotes;
-            note.hitTime = Time.time + approachTime + visualDelay;
+            note.hitTime = Time.time + approachTime;
             ui.Init(note.key, note.hitTime, approachTime);
 
             RectTransform rect = obj.GetComponent<RectTransform>();
@@ -240,4 +258,3 @@ public class RhythmNote
     public float hitTime;
     public RhythmNoteUI ui;
 }
-

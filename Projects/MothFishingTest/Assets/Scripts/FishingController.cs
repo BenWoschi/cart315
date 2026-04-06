@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class FishingController : MonoBehaviour
 {
+    [Header("Other Minigames")]
+    public TimingGame timingGame;
     public FishingInteractable fishingInteractable;
     private bool isGameOver = false;
 
@@ -111,13 +113,17 @@ public class FishingController : MonoBehaviour
 
         return (bMax >= aMin && bMin <= aMax);
     }
+
+    void ResetFishingState()
+    {
+        isGameOver = false;
+
+        // Re-enable script for next time
+        enabled = true;
+    }
+
     void EndMinigame(bool success)
     {
-        if (fishingInteractable != null)
-        {
-            fishingInteractable.EndFishing(); // you’ll create this
-        }
-
         if (isGameOver) return;
         isGameOver = true;
 
@@ -126,10 +132,17 @@ public class FishingController : MonoBehaviour
         else
             Debug.Log("Line broke!");
 
+        // 🔥 IMPORTANT: tell FishingInteractable we're done
+        if (fishingInteractable != null)
+            fishingInteractable.EndFishing();
+
         // Stop updates
         enabled = false;
 
-        // Hide UI (optional)
+        // Hide UI
         gameObject.SetActive(false);
+
+        // Reset for next time
+        ResetFishingState();
     }
 }

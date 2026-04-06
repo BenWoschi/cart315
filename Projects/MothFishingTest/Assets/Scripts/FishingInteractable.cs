@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FishingInteractable : MonoBehaviour
 {
+    public TimingGame timingGame;
     [Header("Camera")]
     public Camera mainCamera;
     public Transform player; // drag your Player here
@@ -117,8 +118,19 @@ public class FishingInteractable : MonoBehaviour
         if (fishingRod != null)
             fishingRod.SetActive(false);
         // Activate minigame UI
-        if (fishingUI != null)
-            fishingUI.SetActive(true);
+        // --- Choose random minigame ---
+        if (Random.value < 0.5f)
+        {
+            // Fishing bar minigame
+            if (fishingUI != null)
+                fishingUI.SetActive(true);
+        }
+        else
+        {
+            // Timing minigame
+            if (timingGame != null)
+                timingGame.StartGame();
+        }
 
         // Optionally, you can re-enable movement here after minigame ends
         // playerMovement.enabled = true;
