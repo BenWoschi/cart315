@@ -136,6 +136,15 @@ public class TimingGame : MonoBehaviour
         if (fishingInteractable != null)
             fishingInteractable.EndFishing();
 
+        // ✅ NEW: update energy system
+        if (EnergyManager.Instance != null)
+        {
+            if (success)
+                EnergyManager.Instance.OnFishingSuccess();
+            else
+                EnergyManager.Instance.OnFishingFail();
+        }
+
         // Hide minigame
         gameObject.SetActive(false);
     }

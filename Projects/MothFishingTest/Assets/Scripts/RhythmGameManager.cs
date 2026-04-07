@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class RhythmGameManager : MonoBehaviour
 {
     [Header("References")]
+    public FishingInteractable fishingInteractable;
     public GameObject notePrefab;
     public Transform noteContainer;
 
@@ -59,24 +60,35 @@ public class RhythmGameManager : MonoBehaviour
         isActive = false;
         Debug.Log(success ? "SUCCESS" : "FAIL");
 
-        // 🔥 stop spawning immediately
         StopAllCoroutines();
 
-        // Optionally hide the game
+        // ✅ ADD THIS
+        if (EnergyManager.Instance != null)
+        {
+            if (success)
+                EnergyManager.Instance.OnFishingSuccess();
+            else
+                EnergyManager.Instance.OnFishingFail();
+        }
+
+        // restore player control
+        if (fishingInteractable != null)
+            fishingInteractable.EndFishing();
+
         gameObject.SetActive(false);
     }
 
     void Update()
     {
         if (!isActive) return;
-        if (currentIndex >= sequence.Count) return;
+        if (currentIndex >= sequence.Count)
+        {
+            // Debug.Log("GAME OVER");
+            return;
+        }
 
         // 🔴 AUTO MISS (player too late)
         RhythmNote note = sequence[currentIndex];
-        //never go to next index?
-        Debug.Log(currentIndex);
-        // Debug.Log(note.key);
-        // Debug.Log(note.hitTime);
 
         //YOU DO NOT NEED THIS HERE AS IN Rhythm nOTE it takes care of this
         //SABINE READDED :)
@@ -86,10 +98,14 @@ public class RhythmGameManager : MonoBehaviour
             float timeToHit = note.hitTime - Time.time;
             if (timeToHit < okayWindow)
             {
+                Debug.Log("auto missing note" + note.key);
+                // Debug.Log("Auto MISS (too late)");
                 Miss(note);
+                currentIndex++;
                 return;
             }
         }
+
 
         // 🟢 INPUT HANDLING (no more Input.anyKeyDown)
         KeyCode pressed = GetPressedKey();
@@ -116,23 +132,41 @@ public class RhythmGameManager : MonoBehaviour
 
     void HandleInput(KeyCode key)
     {
-        if (currentIndex >= sequence.Count) return;
+        //comes here if a key that was pressed is 
+        // one of the possible keys
+
+        if (currentIndex >= sequence.Count)
+        {
+            Debug.Log("game over");
+            return;
+        }
+
+        //get note that should be pressed
         RhythmNote note = sequence[currentIndex];
+        Debug.Log("Expected Key: " + note.key);
 
         if (note.ui == null || note.ui.isDestroyed)
         {
             currentIndex++;
             return;
         }
+        // is the one we are supposed to press... (in sequence)
+        if (key == note.key)
+        {
+            Debug.Log("super!");
+            float timeLeft = Mathf.Abs(Time.time - note.hitTime);
 
-        //SABINE ADDED : is not error - is timeLEFT before you missed
-        float timeLeft = Mathf.Abs(Time.time - note.hitTime);
-        Debug.Log("timeLeft" + timeLeft);
+            if (timeLeft >= okayWindow)
+            {
+                Hit(note);
 
-        if (key == note.key && timeLeft >= okayWindow)
-            Hit(note);
+            }
+        }
         else
-            Miss(note);
+        {
+            Debug.Log("wrong key!");
+        }
+
     }
 
     void Hit(RhythmNote note)
@@ -167,7 +201,7 @@ public class RhythmGameManager : MonoBehaviour
             return;              // stops further processing
         }
 
-        currentIndex++;
+        //currentIndex++;
     }
 
     void GenerateSequence()
@@ -195,12 +229,12 @@ public class RhythmGameManager : MonoBehaviour
     IEnumerator SpawnNotesSequentially()
     {
         List<Vector2> usedPositions = new List<Vector2>();
-        Debug.Log(sequence);
+        //Debug.Log(sequence);
 
         foreach (var note in sequence)
         {
 
-            if (!isActive) yield break;
+            if (!isActive) yield break;  // stop spawning if game ended
 
             GameObject obj = Instantiate(notePrefab, noteContainer);
             RhythmNoteUI ui = obj.GetComponent<RhythmNoteUI>();

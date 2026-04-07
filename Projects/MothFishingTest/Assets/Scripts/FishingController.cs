@@ -117,9 +117,20 @@ public class FishingController : MonoBehaviour
     void ResetFishingState()
     {
         isGameOver = false;
+    }
 
-        // Re-enable script for next time
-        enabled = true;
+    void OnEnable()
+    {
+        ResetFishingState();
+
+        // Reset exhaustion
+        exhaustionMeter.value = 0.75f;
+
+        // Reset fish position & target
+        fishRect.anchoredPosition = new Vector2(0f, fishRect.anchoredPosition.y);
+        SetRandomTarget();
+
+        waitTimer = 0f;
     }
 
     void EndMinigame(bool success)
@@ -128,21 +139,19 @@ public class FishingController : MonoBehaviour
         isGameOver = true;
 
         if (success)
+        {
             Debug.Log("Success!");
+            EnergyManager.Instance.OnFishingSuccess();
+        }
         else
+        {
             Debug.Log("Line broke!");
+            EnergyManager.Instance.OnFishingFail();
+        }
 
-        // 🔥 IMPORTANT: tell FishingInteractable we're done
         if (fishingInteractable != null)
             fishingInteractable.EndFishing();
 
-        // Stop updates
-        enabled = false;
-
-        // Hide UI
         gameObject.SetActive(false);
-
-        // Reset for next time
-        ResetFishingState();
     }
 }

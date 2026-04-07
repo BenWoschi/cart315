@@ -4,6 +4,8 @@ using System.Collections;
 public class FishingInteractable : MonoBehaviour
 {
     public TimingGame timingGame;
+    public RhythmGameManager rhythmGame;
+
     [Header("Camera")]
     public Camera mainCamera;
     public Transform player; // drag your Player here
@@ -119,17 +121,27 @@ public class FishingInteractable : MonoBehaviour
             fishingRod.SetActive(false);
         // Activate minigame UI
         // --- Choose random minigame ---
-        if (Random.value < 0.5f)
+        int choice = Random.Range(0, 3);
+
+        switch (choice)
         {
-            // Fishing bar minigame
-            if (fishingUI != null)
-                fishingUI.SetActive(true);
-        }
-        else
-        {
-            // Timing minigame
-            if (timingGame != null)
-                timingGame.StartGame();
+            case 0:
+                Debug.Log("Fishing bar minigame");
+                if (fishingUI != null)
+                    fishingUI.SetActive(true);
+                break;
+
+            case 1:
+                Debug.Log("Timing minigame");
+                if (timingGame != null)
+                    timingGame.StartGame();
+                break;
+
+            case 2:
+                Debug.Log("Rhythm minigame");
+                if (rhythmGame != null)
+                    rhythmGame.gameObject.SetActive(true);
+                break;
         }
 
         // Optionally, you can re-enable movement here after minigame ends
