@@ -669,8 +669,30 @@ This is the one sentence elevator pitch that I will stick with now. I will not i
 
 ### Finally, the end. Wait.. Nevermind.
 
-It is so gratifying to have basically finished my prototype after all of this time. Do I like it? Yes. Can it be improved? Tenfold. I am happy where it went, but I really wish I could have done more. I will be repeating a lot of what I went over in last week's journal but I should reiterate as a reminder for myself in the future.
+It is so gratifying to have basically finished my prototype after all of this time. Do I like it? Yes. Can it be improved? Tenfold. I am happy where it went, but I really wish I could have done more. I also thought this was the final journal overall, so instead I will be saving a lot of my reflective thoughts for the actual final journal due in a week from now.
 
-I also thought this was the final journal overall, so instead I will be saving a lot of my reflective thoughts for the actual final journal due in a week from now.
+Regardless, what have I done within the past week. Short answer: a lot.
 
-Regardless,
+I've utilized the different animations I have created, more minigames, the water asset and movement to create a mini fishing experience after combining all these elements together.
+
+### Utilizing the 3D Space
+
+As I described last week, there was almost no point in needing to use a 3D environment for my game, as it could have easily been done in 2D with some pixel art. Aside from visuals, the 3D space provided nothing in terms of gameplay. Despite this, I decided to try and give it a purpose.
+
+I decided to expand on my animations and added three more. A second idle animation where the moth either looks sad or exhausted, as well as a sad/exhausted walk and a more normal slow walk. Unfortunately I did not have time to render them so they will not be shown here.
+
+Regardless, I decided that these new animations will help compliment the 'hunger' or 'energy' system I have described in previous entries. This was something I also implemented this week as shown by the energy meter at the bottom of the screen.
+
+![Energy Meter](Screenshots/energyui.png)
+
+Previously, the moth running around at the same speed the whole time without any variation just felt awkward and did not contribute to the overall experience that I wanted. With these new animations and the energy system, it gives the 3D space a bit more use. Despite being very close to the water, the player now at least has to spend a little bit of time shuffling their way towards the water when on low energy.
+
+This lower energy/speed restricts the player from moving around the environment as quickly and makes it seem much bigger than it actually is while contributing toward my intended start as an exhausted moth. The player feels trapped, and regaining that energy through fishing makes the grind feel a little bit more rewarding once reaching higher energy levels.
+
+This is still very surface-level, but it helps alleviate the previous issues I have described with my game. I have also added a vignette and low FOV camera to further enhance this experience, which becomes less intense with higher energy, so that it can really help contribute to this 'exhausted' feel.
+
+![Slow Walk](Screenshots/slowwalk.gif)
+
+Furthermore, I felt like the camera was way too restrictive, especially near the water. Since the water was so visually appealing, I wanted players to be able to view at least the majority of it for the entire game, so I made the camera shift towards the water whenever the player was within the trigger area to be able to fish (aka near it). It also helped contribute to the scale that I mentioned before, where the restricted camera and slow movement tricked the player into believing that they were within a much larger environment. Adding that shift to the camera allowed players to get a glimpse of the 'large' environment that they were in, and they just needed to fish to regain energy to explore easier. This gave players an incentive to fish.
+
+![Camera towards water](Screenshots/waterview.gif)
