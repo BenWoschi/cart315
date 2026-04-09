@@ -667,6 +667,10 @@ This is the one sentence elevator pitch that I will stick with now. I will not i
 
 ## 04/09/2026
 
-### Finally, the end.
+### Finally, the end. Wait.. Nevermind.
 
 It is so gratifying to have basically finished my prototype after all of this time. Do I like it? Yes. Can it be improved? Tenfold. I am happy where it went, but I really wish I could have done more. I will be repeating a lot of what I went over in last week's journal but I should reiterate as a reminder for myself in the future.
+
+I also thought this was the final journal overall, so instead I will be saving a lot of my reflective thoughts for the actual final journal due in a week from now.
+
+Regardless,
