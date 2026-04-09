@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TimingGame : MonoBehaviour
 {
+    public LivesUI livesUI;
     public FishingInteractable fishingInteractable;
     public MonoBehaviour playerMovement;
 
@@ -36,6 +37,8 @@ public class TimingGame : MonoBehaviour
 
     public void StartGame()
     {
+        livesUI.Show();
+        livesUI.ResetLives();
         // 🔥 THIS is the fix
         gameObject.SetActive(true);
 
@@ -97,8 +100,9 @@ public class TimingGame : MonoBehaviour
         else
         {
             Debug.Log("MISS");
-
+            livesUI.LoseLife();
             mistakes++;
+            ScreenShake.Instance?.Shake(0.15f, 0.2f);
             zoneController.SetWidth(zoneController.currentWidth + growAmount);
 
             CheckLose();
@@ -125,6 +129,7 @@ public class TimingGame : MonoBehaviour
 
     void EndGame(bool success)
     {
+        livesUI.Hide();
         // Re-enable movement
         if (playerMovement != null)
             playerMovement.enabled = true;

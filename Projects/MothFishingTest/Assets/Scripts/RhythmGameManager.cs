@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class RhythmGameManager : MonoBehaviour
 {
     [Header("References")]
+    public LivesUI livesUI;
     public FishingInteractable fishingInteractable;
     public GameObject notePrefab;
     public Transform noteContainer;
@@ -38,6 +39,9 @@ public class RhythmGameManager : MonoBehaviour
 
     public void StartMinigame()
     {
+        livesUI.Show();
+        livesUI.ResetLives();
+
         StopAllCoroutines(); // 🔥 IMPORTANT: kill old coroutines
 
         // 🔥 Clear old notes from scene
@@ -57,6 +61,7 @@ public class RhythmGameManager : MonoBehaviour
 
     void EndGame(bool success)
     {
+        livesUI.Hide();
         isActive = false;
         Debug.Log(success ? "SUCCESS" : "FAIL");
 
@@ -187,6 +192,7 @@ public class RhythmGameManager : MonoBehaviour
 
     void Miss(RhythmNote note)
     {
+        livesUI.LoseLife();
         mistakes++;
 
         if (note.ui != null && !note.ui.isDestroyed)

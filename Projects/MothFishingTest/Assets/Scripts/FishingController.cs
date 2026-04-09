@@ -147,6 +147,7 @@ public class FishingController : MonoBehaviour
         {
             Debug.Log("Line broke!");
             EnergyManager.Instance.OnFishingFail();
+            ScreenShake.Instance?.Shake(0.15f, 0.2f);
         }
 
         if (fishingInteractable != null)

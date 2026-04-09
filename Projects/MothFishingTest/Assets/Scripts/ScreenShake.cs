@@ -5,6 +5,8 @@ public class ScreenShake : MonoBehaviour
 {
     public static ScreenShake Instance;
 
+    public Vector3 shakeOffset;
+
     private Vector3 originalPos;
 
     void Awake()
@@ -28,12 +30,12 @@ public class ScreenShake : MonoBehaviour
             float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
-            transform.localPosition = originalPos + new Vector3(x, y, 0f);
+            shakeOffset = new Vector3(x, y, 0f);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = originalPos;
+        shakeOffset = Vector3.zero;
     }
 }
