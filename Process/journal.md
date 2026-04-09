@@ -662,3 +662,11 @@ I will simply finish what I have started by this point. I will now think of a qu
 A weakened moth must conquer fishing-based minigames to regain its strength and take flight once more.
 
 This is the one sentence elevator pitch that I will stick with now. I will not implement any flying, but I imagine that if I had more time, that would be the end goal and pay-off, allowing the player to freely fly around the room.
+
+# Final Ideation Prototype | Process Journal
+
+## 04/09/2026
+
+### Finally, the end.
+
+It is so gratifying to have basically finished my prototype after all of this time. Do I like it? Yes. Can it be improved? Tenfold. I am happy where it went, but I really wish I could have done more. I will be repeating a lot of what I went over in last week's journal but I should reiterate as a reminder for myself in the future.
