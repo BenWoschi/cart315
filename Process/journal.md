@@ -696,3 +696,31 @@ This is still very surface-level, but it helps alleviate the previous issues I h
 Furthermore, I felt like the camera was way too restrictive, especially near the water. Since the water was so visually appealing, I wanted players to be able to view at least the majority of it for the entire game, so I made the camera shift towards the water whenever the player was within the trigger area to be able to fish (aka near it). It also helped contribute to the scale that I mentioned before, where the restricted camera and slow movement tricked the player into believing that they were within a much larger environment. Adding that shift to the camera allowed players to get a glimpse of the 'large' environment that they were in, and they just needed to fish to regain energy to explore easier. This gave players an incentive to fish.
 
 ![Camera towards water](Screenshots/waterview.gif)
+
+### Energyyyy
+
+Something I have consistently lacked recently. I needed some kind of main incentive for people to fish, and some way to end the game on either a loss or a win condition. Therefore, I implemented an energy system. I've spoke about the use of this already, but I did add a way to increase the pace of the game through RNG which are the different things you fish up. I have not had the time to draw any of it like I originally planned, so I may just use images for the 3 pieces, but the player has a chance to fish up a common, uncommon or rare tier wool-related item which give differing amounts of energy. I have spoken about the vignette, desaturation and FOV already, but as those decrease in intensity with higher energy, so too does the movement speed of the player and animations reflect the more energetic state of the moth. The more energy, the brighter the animations and the faster the speed. I was hoping to implement flight at full energy, so the player could fly around the room as the "prize" for winning. However, I do not have the time to implement it.
+
+### Miniature Games
+
+I implemented the other two that I had planned. One is a timing metronome-like game where you have to time your inputs as the needle moving back and fourth gets faster. Whereas the other one is more of an Osu-like rhythm game where you must input whatever key is displayed before the time runs out. These both need to be completed within only 3 mistakes, as a third will be a gameover for that minigame and a loss of energy. The rhythm game took me much longer than I thought. It was almost two days of debugging with Sabine's help. This really messed up my planning for things as I was not expecting it to be that bad. In the end, I got it to work, but I did not and do not have the time to implement a fourth game, which was a problem.
+
+![Timing Minigame](Screenshots/timinggame.gif)
+
+![Rhythm Minigame](Screenshots/rhythmgame.gif)
+
+### Shallow repetitiveness
+
+The lack of a fourth game really helped in exposing the major flaw with my game: an incomplete gameplay loop. I have spoken about this on multiple occasions prior. The game just feels shallow. Okay so you fish to survive, and that's about it. You press E to fish and play 3 different minigames. That's all. It's boring. I'm admittedly typing this a bit later than it's due as I did not finish the entry, but one other game during the playtesting today was similar to mine, but you also had to pay attention to the sound and hide with certain cues while playing the minigame. This creates a dynamic system that makes it fun despite the two simple minigames and forces players to utilize a different sense aside from just visual input. Mine lacks this other system that creates a dynamic gameplay loop, as of right now it's narrow and I'd say incomplete.
+
+I realized I spoke more about this than I'd like, so I'll save the rest for next week's journal. Regardless, I do not have the time to implement a new system as I'm completely swamped.
+
+### Prototyping
+
+As I've mentioned before, I have a tendency to focus way too much on the visual aspect of things and wanting to do everything myself. For example, everything has been created by me, save for the water asset. I've definitely leaned towards a look/feel prototype more over the course of the semester, yet I wish I didn't. My gameplay suffered because of it. I really wish I took the time to approach my game more from a implementation prototype, where I'd focus more on the systems and overall gameplay loop that makes games fun. Visuals and experience are one thing, but if that's the sole focus, then the game is shallow like mine is. Personally, I find gameplay to be king and should have priority over everything else. Yet I contradict myself in doing the opposite.
+
+### UI
+
+I started to remedy this only towards the end. My UI that I have implemented is really basic. Especially as a design student, it's bad by my standards. However, I recognized that I should prioritize the purpose of the UI, to inform and aid the player, so that is what I focused on. It's simple, not great, but gets the job done. I took this mentality as well with my new animations, from the fishing to the different movement. I created them fast, and they are quite bad, but they work and get the general point across. As of writing this I have not finished all of the UI elements, but I definitely will not be spending very long on it like I normally would. I'm glad I started to change my approach, however it was a little too late.
+
+![UI WIP](Screenshots/ui-wip.png)
