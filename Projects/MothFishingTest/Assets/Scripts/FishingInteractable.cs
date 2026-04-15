@@ -3,6 +3,12 @@ using System.Collections;
 
 public class FishingInteractable : MonoBehaviour
 {
+    [Header("UI")]
+    public GameObject energyBarUI;
+    [Header("Instruction Panels")]
+    public GameObject fishingInstructions;
+    public GameObject timingInstructions;
+    public GameObject rhythmInstructions;
     public TimingGame timingGame;
     public RhythmGameManager rhythmGame;
 
@@ -26,6 +32,9 @@ public class FishingInteractable : MonoBehaviour
     public bool playerInRange = false; // Set via trigger
     public GameObject interactPrompt;  // "Press E" prompt UI
 
+    private System.Action startMinigameCallback;
+    private bool waitingForInstructionClick = false;
+
     private bool isFishing = false;
 
     void Start()
@@ -42,6 +51,11 @@ public class FishingInteractable : MonoBehaviour
         if (playerInRange && !isFishing && Input.GetKeyDown(KeyCode.E))
         {
             StartFishing();
+        }
+
+        if (waitingForInstructionClick && Input.GetMouseButtonDown(0))
+        {
+            CloseInstructionsAndStartGame();
         }
     }
 
@@ -127,20 +141,29 @@ public class FishingInteractable : MonoBehaviour
         {
             case 0:
                 Debug.Log("Fishing bar minigame");
-                if (fishingUI != null)
-                    fishingUI.SetActive(true);
+                ShowInstructions(fishingInstructions, () =>
+                {
+                    if (fishingUI != null)
+                        fishingUI.SetActive(true);
+                });
                 break;
 
             case 1:
                 Debug.Log("Timing minigame");
-                if (timingGame != null)
-                    timingGame.StartGame();
+                ShowInstructions(timingInstructions, () =>
+                {
+                    if (timingGame != null)
+                        timingGame.StartGame();
+                });
                 break;
 
             case 2:
                 Debug.Log("Rhythm minigame");
-                if (rhythmGame != null)
-                    rhythmGame.gameObject.SetActive(true);
+                ShowInstructions(rhythmInstructions, () =>
+                {
+                    if (rhythmGame != null)
+                        rhythmGame.gameObject.SetActive(true);
+                });
                 break;
         }
 
@@ -208,5 +231,36 @@ public class FishingInteractable : MonoBehaviour
         }
 
         isFishing = false;
+    }
+
+    void ShowInstructions(GameObject panel, System.Action callback)
+    {
+        if (panel != null)
+            panel.SetActive(true);
+
+        if (energyBarUI != null)
+            energyBarUI.SetActive(false);
+
+        startMinigameCallback = callback;
+        waitingForInstructionClick = true;
+
+        Time.timeScale = 0f; // pause everything
+    }
+
+    void CloseInstructionsAndStartGame()
+    {
+        // Hide all panels
+        if (fishingInstructions != null) fishingInstructions.SetActive(false);
+        if (timingInstructions != null) timingInstructions.SetActive(false);
+        if (rhythmInstructions != null) rhythmInstructions.SetActive(false);
+
+        waitingForInstructionClick = false;
+
+        Time.timeScale = 1f; // resume
+
+        if (energyBarUI != null)
+            energyBarUI.SetActive(true);
+
+        startMinigameCallback?.Invoke();
     }
 }

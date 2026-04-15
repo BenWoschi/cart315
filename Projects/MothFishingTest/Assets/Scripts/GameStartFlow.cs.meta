@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: eafe281dfdae15246815dced60517ee1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - menuPanel: {instanceID: 0}
+  - explanationPanel: {instanceID: 0}
+  - player: {fileID: 919132149155446097, guid: 0b0de9e55ab84d149a50e2c984c0a2cb, type: 3}
+  - energyUI: {instanceID: 0}
+  - menuCamera: {instanceID: 0}
+  - mainCamera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

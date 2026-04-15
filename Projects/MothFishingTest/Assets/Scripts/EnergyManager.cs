@@ -3,6 +3,14 @@ using UnityEngine.UI;
 
 public class EnergyManager : MonoBehaviour
 {
+    [Header("Game Win")]
+    public GameObject gameWinPanel;
+
+    [Header("Game Over")]
+    public GameObject gameOverPanel;
+    public GameObject player;
+    private Vector3 playerStartPosition;
+
     [Header("UI Smoothing")]
     public float smoothSpeed = 5f;
     private float displayedEnergy;
@@ -33,6 +41,7 @@ public class EnergyManager : MonoBehaviour
         HideAllFish();
         displayedEnergy = energy;
         popupPanel.SetActive(false);
+        playerStartPosition = player.transform.position;
     }
 
     void Update()
@@ -91,9 +100,6 @@ public class EnergyManager : MonoBehaviour
         energy += amount;
         energy = Mathf.Clamp01(energy);
 
-        // ❌ remove this:
-        // UpdateUI();
-
         if (energy <= 0f)
         {
             GameOver(false);
@@ -128,6 +134,50 @@ public class EnergyManager : MonoBehaviour
 
         Debug.Log(win ? "YOU WIN" : "GAME OVER");
 
-        // TODO: trigger end screen later
+        if (player != null)
+            player.SetActive(false);
+
+        popupPanel.SetActive(false);
+
+        if (win)
+        {
+            if (gameWinPanel != null)
+                gameWinPanel.SetActive(true);
+        }
+        else
+        {
+            if (gameOverPanel != null)
+                gameOverPanel.SetActive(true);
+        }
+    }
+
+    public void RetryGame()
+    {
+        energy = 0.2f;
+        displayedEnergy = energy;
+
+        if (energyBar != null)
+            energyBar.value = energy;
+
+        isGameOver = false;
+
+        player.transform.position = playerStartPosition;
+        player.SetActive(true);
+
+        if (playerMovement != null)
+            playerMovement.enabled = true;
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+
+        if (gameWinPanel != null)
+            gameWinPanel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+
+        Application.Quit();
     }
 }

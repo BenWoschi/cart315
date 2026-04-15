@@ -2,14 +2,8 @@ using UnityEngine;
 
 public class FishingTriggerArea : MonoBehaviour
 {
+    public CameraFollowRotation cam;
     public Transform focusPoint; // Assign in inspector (empty GameObject near fishing spot)
-
-    private CameraFollowRotation cam;
-
-    void Start()
-    {
-        cam = Camera.main.GetComponent<CameraFollowRotation>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
