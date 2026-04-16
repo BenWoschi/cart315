@@ -724,3 +724,50 @@ As I've mentioned before, I have a tendency to focus way too much on the visual 
 I started to remedy this only towards the end. My UI that I have implemented is really basic. Especially as a design student, it's bad by my standards. However, I recognized that I should prioritize the purpose of the UI, to inform and aid the player, so that is what I focused on. It's simple, not great, but gets the job done. I took this mentality as well with my new animations, from the fishing to the different movement. I created them fast, and they are quite bad, but they work and get the general point across. As of writing this I have not finished all of the UI elements, but I definitely will not be spending very long on it like I normally would. I'm glad I started to change my approach, however it was a little too late.
 
 ![UI WIP](Screenshots/ui-wip.png)
+
+# Final Reflection | Process Journal
+
+## 04/15/2026
+
+Wow, time has passed fast. This will be a shorter journal without any images as I will be purely reflecting on my journey and the prototype I eventually ended up finishing. My game will also be linked at the end but it will have to be downloaded as I couldn't figure out how to run it on Itch.io despite being built as WebGL.
+
+### Double iterative prototyping
+
+Despite being a prototyping class about exploring different game ideas and systems, I really only focused on two things this entire semester: my old prototype and the one I thought of as my final.
+
+I was super obsessed with the idea of my old prototype regarding the input action system, so much so that I realized how much it hindered my growth through the first half of the semester. I still have that one line from one of our lectures in my head, that went something along the lines of "One issue many junior designers face is being attached to one idea." I still remember this as it was the turning point for me.
+
+It made me realized just how obsessed I was with my initial idea that I just did not explore different gameplay systems at all throughout our entire exploration prototype phase. This was such a missed opportunity for me.
+
+I will say however, that it felt daunting trying to develop a different gameplay system every week as I have very little experience in programming (let alone in c#) as well as game engines. I have made a couple of physical games before but never anything in something like Unity. So with that being said, I feel like sticking to that one idea let me avoid that in particular, which I found hampered my progress. I did learn quite a bit about how Unity operated and at least I got to the point where I could understand c#, but I felt like I could have learned a lot more exploring smaller but different systems each week rather than sticking to and developing a singular one.
+
+Admittedly it was also laziness, as I tend to be if I don't have a particular drive to do something.
+
+### Speaking of which..
+
+The first week or two of my actual iterative prototype was a demonstration of what it actually looks like when I have the drive to do something. I got a lot done within those couple of weeks and taught myself more than I have throughout the entire semester. At least that's what it feels like.
+
+Within those 2 weeks I modelled, rigged, animated and imported my own character into a game engine. I learned how to use the 3D engine in particular. I learned how to create dynamic lighting and utilize different render pipelines. I imported a user-made 3D asset and was able to edit it to my liking. I created different systems that all complimented each other, in particular using blend tree/the animator to tie my speed and animations to different energy levels. Okay some of that was outside of that 2 week period but my point still stands, I learned a lot within a short period of time.
+
+### Personal Reflection
+
+Unfortunately, as the work piled up I lost a lot of my drive to continue, the passion I had initially dwindled, more so towards the end. I feel like that probably showed as well, as I was planning on adding something to at least make my gameplay a bit more dynamic but never did, partially out of lack of motivation, partially due to the large workload I had/still have as I am writing this.
+
+I also tend to be someone who has an idea and/or particular drive to do something, explode in a flurry of action, do a lot, but never finish it. The amount of unfinished 3D models or drawings I have is a lot. It is so rare that I finish a personal project, and I am not sure why. I have kind of always been like that. If it wasn't for this game being a school project, I probably would not have finished it and would have moved onto something else. So my pace just slowed down in the final 2-ish weeks.
+
+I am sure part of the reason why I don't tend to finish many things is because I am a perfectionist, doing something half-assed or not to my liking just does not make me feel good. Sometimes I spend hours just trying to make something as good as it can be, when in reality I'm wasting a lot of time and burning myself out. I have also mentioned in a previous journal entry that I like doing/creating everything myself, and this is part of that. I spent an entire weekend and many hours creating my own rig for my model and weight painting it, as well as animating the run animation in particular. I could have used existing assets and focused more on refining the gameplay, but alas, I did not. This is a big flaw I have and tried to work on in the end at least, by spending little time on the new animations and UI, focusing more on functionality than form. Although it was a little too late.
+
+This approach of mine massively impacted the end-result of my game, and I'll have to try harder to regulate myself and manage my time better for future projects.
+
+I am happy though that I was not falling too much to scope creep by creating a much more ambitious and impossible goal that I also used to do. I have been limiting myself from what I tend to do, but not enough. I am at least taking steps in the right direction.
+
+### Final Thoughts
+
+I do also want to mention how nice the journals are.. at least most of the time. I tend to exist in my own head a lot, so having an outlet and really being able to evaluate myself is nice. This is also the reason why as to why I am not so harsh on myself anymore. As you probably have read, I was absolutely dumpstering myself on my game, as I did/still do not like it that much, at least in terms of gameplay. I know I could have and I really wish I did more to create a fun and engaging game, but I did not. I feel like I created a small platform for minigames rather than an actual game.
+
+However, after writing in this journal entry in particular, I am content about my journey here. Did I create something that was fun and that I liked playing? Ehh, not so much. Although, I am very happy with how much I did and how much I have learned over the course of this semester. If it wasn't for the journals, I probably would have still remained bitter. Thanks journals!
+
+Anyways, this has been fun.
+o7
+
+Oh and here's the link to my game: https://vibingnspace.itch.io/keratin-collector
